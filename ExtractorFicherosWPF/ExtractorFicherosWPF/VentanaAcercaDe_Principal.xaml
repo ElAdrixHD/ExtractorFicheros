@@ -1,0 +1,21 @@
+﻿<Window x:Name="Ventana_AcercaDe" x:Class="ExtractorFicherosWPF.VentanaAcercaDe_Principal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExtractorFicherosWPF"
+        mc:Ignorable="d"
+        Title="Acerca de" Height="333.293" Width="324.878" Background="#FFCECECE"
+        ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="Boton_AcercaDe_Cerrar" Content="Cerrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="110,263,0,0" Click="Boton_AcercaDe_Cerrar_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="Desarrollador Principal:" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Linux Biolinum G" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="14" FontStyle="Italic" TextDecorations="Underline"><Run Text="Pablo Lopez Santa"/><Run Text="na"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,193,0,0" TextWrapping="Wrap" Text="Desarrolladores Secundarios:" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,216,0,0" TextWrapping="Wrap" Text="Adrián Muñoz Mudarra" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="14" FontStyle="Italic" TextDecorations="Underline"/>
+        <Image Margin="10,10,203.4,181" RenderTransformOrigin="0.468,0.834" Source="./Imagenes/pablito.jpg"/>
+        <Image Margin="191,10,10.4,181" RenderTransformOrigin="0.468,0.834" Source="./Imagenes/Adrian.jpeg"/>
+
+
+    </Grid>
+</Window>

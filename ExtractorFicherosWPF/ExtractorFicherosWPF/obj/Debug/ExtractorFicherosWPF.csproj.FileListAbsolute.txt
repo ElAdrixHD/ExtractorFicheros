@@ -1,0 +1,17 @@
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.exe.config
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.exe
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.pdb
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csprojResolveAssemblyReference.cache
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\MainWindow.g.cs
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\App.g.cs
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF_MarkupCompile.cache
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF_MarkupCompile.lref
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\MainWindow.baml
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.g.resources
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.Properties.Resources.resources
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.GenerateResource.Cache
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.CoreCompileInputs.cache
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.exe
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.pdb
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\VentanaAcercaDe_Principal.g.cs
+C:\Users\adria\Desktop\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\VentanaAcercaDe_Principal.baml

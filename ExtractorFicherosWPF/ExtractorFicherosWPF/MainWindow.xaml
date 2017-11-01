@@ -1,0 +1,44 @@
+﻿<Window x:Name="VentanaPrincipal" x:Class="ExtractorFicherosWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExtractorFicherosWPF"
+        mc:Ignorable="d"
+        Title="Extractor Ficheros WPF" Height="318.415" Width="677.805"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Menu x:Name="MiMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="671">
+            <MenuItem x:Name="MiMenu_Archivo" Header="Archivo" Height="20" FontFamily="Linux Biolinum G" FontSize="14">
+                <MenuItem x:Name="MiMenu_Salir" Header="Salir" Click="MiMenu_Salir_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="MiMenu_Ayuda" Header="Ayuda" Height="20" FontFamily="Linux Biolinum G" FontSize="14">
+                <MenuItem x:Name="MiMenu_Git" Header="GitHub" FontFamily="Linux Biolinum G" FontSize="14">
+                    <MenuItem.Icon>
+                        <Image Source="Imagenes/GitHub-Mark-32px.png" Margin="0,0,-7,0"/>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="MiMenu_Git_Pablo" Header="Rasky0607 (Pablo)" Click="MiMenu_Git_Pablo_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Imagenes/GitHub-Mark-32px.png" Margin="0,0,-7,0"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="MiMenu_Git_Adrian" Header="ElAdrixHD (Adrián)" Click="MiMenu_Git_Adrian_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Imagenes/GitHub-Mark-32px.png" Margin="0,0,-7,0"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="MiMenu_Acerca" Header="Acerca de" FontFamily="Linux Biolinum G" FontSize="14" Click="MiMenu_Acerca_Click"/>
+            </MenuItem>
+        </Menu>
+        <TextBlock HorizontalAlignment="Left" Margin="19,67,0,0" TextWrapping="Wrap" Text="Ruta de Origen del proyecto:" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Linux Biolinum G" FontSize="14"/>
+        <TextBox x:Name="Path_Origen" HorizontalAlignment="Left" Height="23" Margin="19,88,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="431" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="19,135,0,0" TextWrapping="Wrap" Text="Ruta del Destino para los archivos:" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Linux Biolinum G" FontSize="14"/>
+        <TextBox x:Name="Path_Destino" HorizontalAlignment="Left" Height="23" Margin="19,156,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="431" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
+        
+        <Button x:Name="BotonExaminar_Origen" Content="Examinar" HorizontalAlignment="Left" Margin="480,88,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16"/>
+        <Button x:Name="BotonExaminar_Destino" Content="Examinar" HorizontalAlignment="Left" Margin="480,156,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16"/>
+
+    </Grid>
+</Window>
