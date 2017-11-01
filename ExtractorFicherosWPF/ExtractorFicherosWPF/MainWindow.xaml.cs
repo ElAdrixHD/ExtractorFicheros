@@ -30,7 +30,10 @@ namespace ExtractorFicherosWPF
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+
+        
 
         private string RutaDirectorioOrigen;
 
@@ -67,7 +70,7 @@ namespace ExtractorFicherosWPF
         {
             Process.Start("https://github.com/ElAdrixHD/");
         }
-
+/*
         /// <summary>
         /// Abre un cuadro para seleccionar la carpeta que desea buscar
         /// </summary>
@@ -91,7 +94,7 @@ namespace ExtractorFicherosWPF
                 throw;
             }
             return path;
-        }
+        }*/
 
         /// <summary>
         /// Ejecuta el programa
@@ -140,8 +143,9 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Origen_Click(object sender, RoutedEventArgs e)
         {
+            Directorio miDirectorio = new Directorio();
             string path;
-            path = AbrirDialogo();
+            path = miDirectorio.AbrirDialogo();
             RutaDirectorioOrigen = path;
             Path_Origen.Text = path;
             
@@ -153,7 +157,8 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Destino_Click(object sender, RoutedEventArgs e)
         {
-            Path_Destino.Text = AbrirDialogo();
+            Directorio miDirectorio = new Directorio();
+            Path_Destino.Text = miDirectorio.AbrirDialogo();
             if (Path_Origen.Text == "")
             {
                 Path_Destino.Text = "Path";

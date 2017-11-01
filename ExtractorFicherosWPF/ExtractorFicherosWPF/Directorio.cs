@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 //Añadido
 using System.IO;
+using System.Windows.Forms;
 
 namespace ExtractorFicherosWPF
 {
     class Directorio 
     {
-        MainWindow miwindow = new MainWindow();
+        
 
         #region variables globales
-        string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros.     
+        string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros. 
+        string pathSubdirectorios = string.Empty;
         string rutaParaSubdirectorio = string.Empty;//Ruta hacia la carpeta raiz original donde leeremos todos los subdirectorios originales.
         string[] arryRutasNuevas;//Colecion de rutas nuevas des de el directorio raiz nuevo hasta cada uno de los subdirectorios       
         bool hayfichero = false;//Comprueba si encontro un fichero o n o en el nivel de directorios que se encuentra.
@@ -26,6 +28,30 @@ namespace ExtractorFicherosWPF
         ConsoleColor colorCompletado = ConsoleColor.Green;
 
         #endregion
+        //---------------------------------------------------------------------------------------------------------------------
+        public string AbrirDialogo()
+        {
+            string path = string.Empty;
+            FolderBrowserDialog dialogoDirectorio = new FolderBrowserDialog();
+            DialogResult resultado;
+
+            try
+            {
+                dialogoDirectorio.ShowNewFolderButton = true;
+                resultado = dialogoDirectorio.ShowDialog();
+                path = dialogoDirectorio.SelectedPath;
+                pathSubdirectorios = path;
+                dialogoDirectorio.Dispose();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return path;
+        }
+        //-----------------------------------------------------------------------------------------------------------------------
+
 
         /// <Metodo que Lee el Directorio raiz>
         /// Lee el directorio raiz, y monta las rutas hasta los ficheros ".cs"
@@ -35,7 +61,7 @@ namespace ExtractorFicherosWPF
         {
             string subdirectorioanadidofinal = string.Empty;//Variable usada para añadir el ultimo subdirectorio mas profundo antes de llegar a los ficheros     
             string rutatmp = string.Empty; //ruta temporal , para montar la ruta hacia los nuevos directorios que se van a crear iguales que los originale, excepto el raiz.
-            rutaParaSubdirectorio = miwindow.LlamadaDirectorio();
+            rutaParaSubdirectorio = pathSubdirectorios;
             DirectoryInfo d = new DirectoryInfo(rutaParaSubdirectorio);
             DirectoryInfo[] directorios = d.GetDirectories();
             ArrayRutasOriginales = new string[directorios.Length];

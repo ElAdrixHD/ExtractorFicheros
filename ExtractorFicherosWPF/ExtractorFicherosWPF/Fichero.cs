@@ -15,7 +15,6 @@ namespace ExtractorFicherosWPF
         #region Variables globales
         int opcion = 0;
         Directorio miDirectorio = new Directorio();
-        MainWindow miwindow = new MainWindow();
         string[] arryRutasOriginales;
         string[] arrayRutasExe;//Array donde guardaremos la coleccion de rutas originales hasta los ejecutables
         string[] arryUnaClase;//Donde guardaremos la ruta hacia cada fichero ".cs" de un proyecto.
