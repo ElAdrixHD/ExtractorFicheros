@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ExtractorFicherosWPF"
         mc:Ignorable="d"
         Title="Extractor Ficheros WPF" Height="318.415" Width="677.805"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize" Background="#FF94C7FF">
     <Grid>
         <Menu x:Name="MiMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="671">
             <MenuItem x:Name="MiMenu_Archivo" Header="Archivo" Height="20" FontFamily="Linux Biolinum G" FontSize="14">
@@ -32,13 +32,14 @@
             </MenuItem>
         </Menu>
         <TextBlock HorizontalAlignment="Left" Margin="19,67,0,0" TextWrapping="Wrap" Text="Ruta de Origen del proyecto:" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Linux Biolinum G" FontSize="14"/>
-        <TextBox x:Name="Path_Origen" HorizontalAlignment="Left" Height="23" Margin="19,88,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="431" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
+        <TextBox x:Name="Path_Origen" HorizontalAlignment="Left" Height="23" Margin="19,88,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="536" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="19,135,0,0" TextWrapping="Wrap" Text="Ruta del Destino para los archivos:" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Linux Biolinum G" FontSize="14"/>
-        <TextBox x:Name="Path_Destino" HorizontalAlignment="Left" Height="23" Margin="19,156,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="431" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
+        <TextBox x:Name="Path_Destino" HorizontalAlignment="Left" Height="23" Margin="19,156,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="536" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
         
-        <Button x:Name="BotonExaminar_Origen" Content="Examinar" HorizontalAlignment="Left" Margin="480,88,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16"/>
-        <Button x:Name="BotonExaminar_Destino" Content="Examinar" HorizontalAlignment="Left" Margin="480,156,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16"/>
+        <Button x:Name="BotonExaminar_Origen" Content="Examinar" HorizontalAlignment="Left" Margin="563,88,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Origen_Click" RenderTransformOrigin="1.132,0.69"/>
+        <Button x:Name="BotonExaminar_Destino" Content="Examinar" HorizontalAlignment="Left" Margin="563,156,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Destino_Click"/>
+        <Button x:Name="BotonIniciar" Content="Iniciar Programa" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Margin="480,243,0,0" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonIniciar_Click"/>
 
     </Grid>
 </Window>
