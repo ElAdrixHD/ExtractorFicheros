@@ -15,17 +15,12 @@ namespace ExtractorFicherosWPF
 
         #region variables globales
         string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros. 
-        string pathSubdirectorios = string.Empty;
         string rutaParaSubdirectorio = string.Empty;//Ruta hacia la carpeta raiz original donde leeremos todos los subdirectorios originales.
         string[] arryRutasNuevas;//Colecion de rutas nuevas des de el directorio raiz nuevo hasta cada uno de los subdirectorios       
         bool hayfichero = false;//Comprueba si encontro un fichero o n o en el nivel de directorios que se encuentra.
         string[] ArrayRutasOriginales;//Rutas originales hasta el directorio mas proximo a los ".cs"
         string[] Arraynombreejecutables;//Array de cada uno de los nombres de los ejecutables a buscar"ya que podemos encontrar varios .exe en un proyecto".
         string[] ArrayRutasOriginalesExe;//Array de rutas hasta los ejecutables .exe
-
-        ConsoleColor colorPregunta = ConsoleColor.DarkYellow;
-        ConsoleColor colorRespuesta = ConsoleColor.White;
-        ConsoleColor colorCompletado = ConsoleColor.Green;
 
         #endregion
         //---------------------------------------------------------------------------------------------------------------------
@@ -40,7 +35,7 @@ namespace ExtractorFicherosWPF
                 dialogoDirectorio.ShowNewFolderButton = true;
                 resultado = dialogoDirectorio.ShowDialog();
                 path = dialogoDirectorio.SelectedPath;
-                pathSubdirectorios = path;
+                rutaParaSubdirectorio = path;
                 dialogoDirectorio.Dispose();
             }
             catch (Exception)
@@ -61,7 +56,7 @@ namespace ExtractorFicherosWPF
         {
             string subdirectorioanadidofinal = string.Empty;//Variable usada para añadir el ultimo subdirectorio mas profundo antes de llegar a los ficheros     
             string rutatmp = string.Empty; //ruta temporal , para montar la ruta hacia los nuevos directorios que se van a crear iguales que los originale, excepto el raiz.
-            rutaParaSubdirectorio = pathSubdirectorios;
+
             DirectoryInfo d = new DirectoryInfo(rutaParaSubdirectorio);
             DirectoryInfo[] directorios = d.GetDirectories();
             ArrayRutasOriginales = new string[directorios.Length];
@@ -140,18 +135,18 @@ namespace ExtractorFicherosWPF
 
             string datosRutaSubdirectNuevos = string.Empty;
             string nombreDirectorioNuevo = string.Empty;
-            Console.ForegroundColor = colorPregunta;
+
             Console.WriteLine("\n-Dime la letra del volumen donde voy a crear el nuevo directorio con el contenido copiado.");
-            Console.ForegroundColor = colorRespuesta;
+   
             datosRutaSubdirectNuevos = Console.ReadLine();
             rutaDirectoriosNuevos = datosRutaSubdirectNuevos + Path.VolumeSeparatorChar.ToString();
-            Console.ForegroundColor = colorPregunta;
+   
             Console.WriteLine("\n-Dime el nombre del nuevo directorio raiz a crear.\n\"Los Subdirectorios se llamaran igual que los de el directorio origen.\"");
-            Console.ForegroundColor = colorRespuesta;
+          
             nombreDirectorioNuevo = Console.ReadLine();
             rutaDirectoriosNuevos += Path.DirectorySeparatorChar.ToString() + nombreDirectorioNuevo;
             Directory.CreateDirectory(rutaDirectoriosNuevos);
-            Console.ForegroundColor = colorCompletado;
+
             Console.WriteLine("\n---------------Directorio \"" + nombreDirectorioNuevo + "\" creado!.-------------------\n");
 
             return rutaDirectoriosNuevos;

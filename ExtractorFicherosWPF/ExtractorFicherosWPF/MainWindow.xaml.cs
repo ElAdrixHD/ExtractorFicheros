@@ -25,8 +25,9 @@ namespace ExtractorFicherosWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-       
 
+        Fichero mifichero = new Fichero();
+        Directorio miDirectorio = new Directorio();
         public MainWindow()
         {
             InitializeComponent();
@@ -102,7 +103,7 @@ namespace ExtractorFicherosWPF
         private void Ejecucion()
         {
             bool saliobien;
-            Fichero mifichero = new Fichero();
+            
             do
             {
                 saliobien = mifichero.LecturaFicheros();
@@ -110,13 +111,6 @@ namespace ExtractorFicherosWPF
             mifichero.LecturaFicheroExe();
 
             System.Windows.MessageBox.Show("Programa Completado","Todo Perfecto",MessageBoxButton.OK);
-        }
-
-        public string LlamadaDirectorio()
-        {
-            string path;
-            path = RutaDirectorioOrigen;
-            return path;
         }
 
         #endregion
@@ -143,7 +137,7 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Origen_Click(object sender, RoutedEventArgs e)
         {
-            Directorio miDirectorio = new Directorio();
+           
             string path;
             path = miDirectorio.AbrirDialogo();
             RutaDirectorioOrigen = path;
@@ -157,7 +151,7 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Destino_Click(object sender, RoutedEventArgs e)
         {
-            Directorio miDirectorio = new Directorio();
+          
             Path_Destino.Text = miDirectorio.AbrirDialogo();
             if (Path_Origen.Text == "")
             {
