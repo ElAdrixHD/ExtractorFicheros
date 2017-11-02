@@ -21,6 +21,8 @@ namespace ExtractorFicherosWPF
         string[] ArrayRutasOriginales;//Rutas originales hasta el directorio mas proximo a los ".cs"
         string[] Arraynombreejecutables;//Array de cada uno de los nombres de los ejecutables a buscar"ya que podemos encontrar varios .exe en un proyecto".
         string[] ArrayRutasOriginalesExe;//Array de rutas hasta los ejecutables .exe
+        string[] ArrayNomDirectorioRaizProyecto;//Array del nombre de la carpeta raiz de UN PROYECTO Ej: c.\\Ejercicios\Ej1 coge solo Ej1!
+        string[] ArrayComprobacionRutasOriginales;//Este array se llena de rutas a comprobar de cada proyecto Ej. C:\\Ejercicios\EJ1\App_reloj comprueba  si dentro de esta hay otro directorio llamado igual
         static string rutaOrigen = string.Empty;
         static string rutaDestino = string.Empty;
 
@@ -76,12 +78,14 @@ namespace ExtractorFicherosWPF
             arryRutasNuevas = new string[directorios.Length];
             string[] arryRutasNuevasTmp = new string[ArrayRutasOriginales.Length];//Array de rutas donde se han creado cada uno de los nuevos subdirectorios en el nuevo directorio Raiz.  
             Arraynombreejecutables = new string[ArrayRutasOriginales.Length];
-
+          
             for (int i = 0; i < directorios.Length; i++)
             {
                 ArrayRutasOriginales[i] = rutaOrigen + "\\" + directorios[i];//Monta y guarda todas las rutas des de la Raiz hasta cada uno de los subdirectorios.
 
             }
+
+          
 
             #region Creacion de directorios
 
@@ -102,7 +106,7 @@ namespace ExtractorFicherosWPF
 
             //POSIBLE METODO LLAMADO "BUSQUEDA PROFUNDA"
             //-Remontando rutas originales finales "relacionejercicios\ejercicio1\app_reloj"
-
+           
             for (int i = 0; i < ArrayRutasOriginales.Length; i++)
             {
                 string tmp = string.Empty;
@@ -119,17 +123,20 @@ namespace ExtractorFicherosWPF
                         {
                             for (int j = 0; j < dEncontrados.Length; j++)
                             {
-
-
-                                subdirectorioanadidofinal = dEncontrados[j].ToString();
-                                if (subdirectorioanadidofinal != ".vs")
+                              
+                                subdirectorioanadidofinal = dEncontrados[j].ToString();                               
+                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults")
                                 {
-                                    tmp = ArrayRutasOriginales[i];
-                                    tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
-                                    ArrayRutasOriginales[i] = tmp;
-                                    Fichero mifichero = new Fichero();
-                                    hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
+
+                                            tmp = ArrayRutasOriginales[i];
+                                            tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
+                                            ArrayRutasOriginales[i] = tmp;
+                                            Fichero mifichero = new Fichero();
+                                            hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);                                          
+                                                                              
+                                    
                                 }
+                              
                             }
                         } while (hayfichero == false);
                        
@@ -203,6 +210,24 @@ namespace ExtractorFicherosWPF
             }
             return ArrayRutasOriginalesExe;
         }
+
+        public string[] DevuelveNombreDirectorioRaizdeProyecto()
+        {
+            string[] partesDeUnaRutaOriginal;
+            string nombreDirectorioRaizProyecto = string.Empty;
+            ArrayNomDirectorioRaizProyecto = new string[ArrayComprobacionRutasOriginales.Length];
+
+            for (int i = 0; i < ArrayComprobacionRutasOriginales.Length; i++)
+            {
+                partesDeUnaRutaOriginal = ArrayComprobacionRutasOriginales[i].Split(Path.DirectorySeparatorChar);
+                nombreDirectorioRaizProyecto = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];//Cogemos el ultimo de el array que sera el directorio con el nombre del proyecto (el mismo que del ejecutable final)
+                ArrayNomDirectorioRaizProyecto[i] = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];
+               
+            }
+
+            return ArrayNomDirectorioRaizProyecto;
+        }
+
         /// <Devuelve el nombre de cada ejecutable>
         /// Devuelve los nombres de cada ejecutable que coincide con el nombre del proyecto
         /// </summary>
