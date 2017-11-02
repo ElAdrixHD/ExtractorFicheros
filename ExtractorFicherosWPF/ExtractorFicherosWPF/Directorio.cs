@@ -117,13 +117,22 @@ namespace ExtractorFicherosWPF
 
                         do
                         {
-                            subdirectorioanadidofinal = dEncontrados[0].ToString();
-                            tmp = ArrayRutasOriginales[i];
-                            tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
-                            ArrayRutasOriginales[i] = tmp;
-                            Fichero mifichero = new Fichero();
-                            hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
+                            for (int j = 0; j < dEncontrados.Length; j++)
+                            {
+
+
+                                subdirectorioanadidofinal = dEncontrados[j].ToString();
+                                if (subdirectorioanadidofinal != ".vs")
+                                {
+                                    tmp = ArrayRutasOriginales[i];
+                                    tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
+                                    ArrayRutasOriginales[i] = tmp;
+                                    Fichero mifichero = new Fichero();
+                                    hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
+                                }
+                            }
                         } while (hayfichero == false);
+                       
                         
 
                     }
