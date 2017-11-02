@@ -24,7 +24,7 @@ namespace ExtractorFicherosWPF
         static string rutaOrigen = string.Empty;
         static string rutaDestino = string.Empty;
 
-        #endregion
+        #endregion 
         //---------------------------------------------------------------------------------------------------------------------
         public string AbrirDialogo()
         {
@@ -79,7 +79,7 @@ namespace ExtractorFicherosWPF
 
             for (int i = 0; i < directorios.Length; i++)
             {
-                ArrayRutasOriginales[i] = rutaParaSubdirectorio + "\\" + directorios[i];//Monta y guarda todas las rutas des de la Raiz hasta cada uno de los subdirectorios.
+                ArrayRutasOriginales[i] = rutaOrigen + "\\" + directorios[i];//Monta y guarda todas las rutas des de la Raiz hasta cada uno de los subdirectorios.
 
             }
 
@@ -124,7 +124,7 @@ namespace ExtractorFicherosWPF
                             Fichero mifichero = new Fichero();
                             hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
                         } while (hayfichero == false);
-                        ;
+                        
 
                     }
                 } while (dEncontrados[0].ToString() == "");
