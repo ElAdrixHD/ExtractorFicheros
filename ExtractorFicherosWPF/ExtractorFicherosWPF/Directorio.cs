@@ -21,6 +21,8 @@ namespace ExtractorFicherosWPF
         string[] ArrayRutasOriginales;//Rutas originales hasta el directorio mas proximo a los ".cs"
         string[] Arraynombreejecutables;//Array de cada uno de los nombres de los ejecutables a buscar"ya que podemos encontrar varios .exe en un proyecto".
         string[] ArrayRutasOriginalesExe;//Array de rutas hasta los ejecutables .exe
+        static string rutaOrigen = string.Empty;
+        static string rutaDestino = string.Empty;
 
         #endregion
         //---------------------------------------------------------------------------------------------------------------------
@@ -45,6 +47,16 @@ namespace ExtractorFicherosWPF
             }
             return path;
         }
+
+        public string CargarRutaOrigen()
+        {
+            return rutaOrigen = AbrirDialogo();
+        }
+
+        public string CargarRutaDestino()
+        {
+            return rutaDestino = AbrirDialogo();
+        }
         //-----------------------------------------------------------------------------------------------------------------------
 
 
@@ -57,7 +69,7 @@ namespace ExtractorFicherosWPF
             string subdirectorioanadidofinal = string.Empty;//Variable usada para añadir el ultimo subdirectorio mas profundo antes de llegar a los ficheros     
             string rutatmp = string.Empty; //ruta temporal , para montar la ruta hacia los nuevos directorios que se van a crear iguales que los originale, excepto el raiz.
 
-            DirectoryInfo d = new DirectoryInfo(rutaParaSubdirectorio);
+            DirectoryInfo d = new DirectoryInfo(rutaOrigen);
             DirectoryInfo[] directorios = d.GetDirectories();
             ArrayRutasOriginales = new string[directorios.Length];
             ArrayRutasOriginalesExe = new string[ArrayRutasOriginales.Length];
@@ -74,7 +86,7 @@ namespace ExtractorFicherosWPF
             #region Creacion de directorios
 
             //Crea los nuevos Subdirectorios...(No se realizo en su metodo, ya que necesitamos  la longitud del array declarado en este."directorios""
-            rutatmp = CreaDirectorios();
+            rutatmp = rutaDestino;
             for (int i = 0; i < directorios.Length; i++)
             {
                 string apoyoruta = rutatmp;//Variable para conservar la ruta original
@@ -130,7 +142,7 @@ namespace ExtractorFicherosWPF
         /// (con el nombre identico de cada uno de los subdirectorios de la carpeta raiz original)
         /// </summary>
         /// <returns>RutaDirectoriosNuevos</returns>
-        public string CreaDirectorios()
+        /*public string CreaDirectorios()
         {
 
             string datosRutaSubdirectNuevos = string.Empty;
@@ -150,7 +162,7 @@ namespace ExtractorFicherosWPF
             Console.WriteLine("\n---------------Directorio \"" + nombreDirectorioNuevo + "\" creado!.-------------------\n");
 
             return rutaDirectoriosNuevos;
-        }
+        }*/
 
         /// <Metodo que deuvle las nuevas rutas creadas>
         /// Devuelve todas y cada una de las subrutas nuevas creadas al crear un nuevo directorio raiz

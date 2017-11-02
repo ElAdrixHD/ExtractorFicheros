@@ -75,6 +75,7 @@ namespace ExtractorFicherosWPF
             }
             catch
             {
+                
                 return false;
             }
             return true;

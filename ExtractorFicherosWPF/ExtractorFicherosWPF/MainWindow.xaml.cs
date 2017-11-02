@@ -27,7 +27,6 @@ namespace ExtractorFicherosWPF
     {
 
         Fichero mifichero = new Fichero();
-        Directorio miDirectorio = new Directorio();
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +35,7 @@ namespace ExtractorFicherosWPF
 
         
 
-        private string RutaDirectorioOrigen;
+         string RutaDirectorioOrigen;
 
         #region Metodos
         /// <summary>
@@ -137,11 +136,9 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Origen_Click(object sender, RoutedEventArgs e)
         {
-           
-            string path;
-            path = miDirectorio.AbrirDialogo();
-            RutaDirectorioOrigen = path;
-            Path_Origen.Text = path;
+
+            Directorio miDirectorio = new Directorio();
+            Path_Origen.Text = miDirectorio.CargarRutaOrigen();
             
             if (Path_Origen.Text == "")
             {
@@ -151,8 +148,8 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Destino_Click(object sender, RoutedEventArgs e)
         {
-          
-            Path_Destino.Text = miDirectorio.AbrirDialogo();
+            Directorio miDirectorio = new Directorio();
+            Path_Destino.Text = miDirectorio.CargarRutaDestino();
             if (Path_Origen.Text == "")
             {
                 Path_Destino.Text = "Path";
