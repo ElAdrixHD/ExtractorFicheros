@@ -24,7 +24,7 @@ namespace ExtractorFicherosWPF
         static string rutaOrigen = string.Empty;
         static string rutaDestino = string.Empty;
 
-        #endregion
+        #endregion 
         //---------------------------------------------------------------------------------------------------------------------
         public string AbrirDialogo()
         {
