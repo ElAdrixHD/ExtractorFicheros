@@ -33,10 +33,6 @@ namespace ExtractorFicherosWPF
             
         }
 
-        
-
-         string RutaDirectorioOrigen;
-
         #region Metodos
         /// <summary>
         /// Cierra la aplicación
@@ -70,31 +66,6 @@ namespace ExtractorFicherosWPF
         {
             Process.Start("https://github.com/ElAdrixHD/");
         }
-/*
-        /// <summary>
-        /// Abre un cuadro para seleccionar la carpeta que desea buscar
-        /// </summary>
-        /// <returns>Devuelve la ruta del directorio</returns>
-        private string AbrirDialogo()
-        {
-            string path = string.Empty;
-            FolderBrowserDialog dialogoDirectorio = new FolderBrowserDialog();
-            DialogResult resultado;
-
-            try
-            {
-                dialogoDirectorio.ShowNewFolderButton = true;
-                resultado = dialogoDirectorio.ShowDialog();
-                path = dialogoDirectorio.SelectedPath;
-                dialogoDirectorio.Dispose();
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-            return path;
-        }*/
 
         /// <summary>
         /// Ejecuta el programa
@@ -109,7 +80,15 @@ namespace ExtractorFicherosWPF
             } while (saliobien == false);
             mifichero.LecturaFicheroExe();
 
-            System.Windows.MessageBox.Show("Programa Completado","Todo Perfecto",MessageBoxButton.OK);
+            TextBox_TodoBien.Opacity = 100;
+            Path_Origen.Text = "Path";
+            Path_Destino.Text = "Path";
+            BotonIniciar.IsEnabled = false;
+        }
+
+        public static void MensajeError(Exception ex)
+        {
+            System.Windows.MessageBox.Show(ex.Message, "Excepcion... Fatal Error", MessageBoxButton.OK,MessageBoxImage.Error);
         }
 
         #endregion
@@ -139,10 +118,18 @@ namespace ExtractorFicherosWPF
 
             Directorio miDirectorio = new Directorio();
             Path_Origen.Text = miDirectorio.CargarRutaOrigen();
-            
+
             if (Path_Origen.Text == "")
             {
                 Path_Origen.Text = "Path";
+            }
+            if (Path_Destino.Text != "Path" && Path_Origen.Text != "Path")
+            {
+                BotonIniciar.IsEnabled = true;
+            }
+            else
+            {
+                BotonIniciar.IsEnabled = false;
             }
         }
 
@@ -150,9 +137,17 @@ namespace ExtractorFicherosWPF
         {
             Directorio miDirectorio = new Directorio();
             Path_Destino.Text = miDirectorio.CargarRutaDestino();
-            if (Path_Origen.Text == "")
+            if (Path_Destino.Text == "")
             {
                 Path_Destino.Text = "Path";
+            }
+            if (Path_Origen.Text != "Path" && Path_Destino.Text != "Path")
+            {
+                BotonIniciar.IsEnabled = true;
+            }
+            else
+            {
+                BotonIniciar.IsEnabled = false;
             }
         }
 

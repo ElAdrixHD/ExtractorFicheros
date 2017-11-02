@@ -30,8 +30,8 @@ namespace ExtractorFicherosWPF
 
         public bool LecturaFicheros()
         {
-            /*try
-            {*/
+            try
+            {
                 arryRutasOriginales = miDirectorio.LecturaSubDirectorios();
                 arrayRutasExe = miDirectorio.DevuelveRutasOriginalesExe();
                 Rutasnuevas = miDirectorio.DevuelveRutasNuevas();//Guarda las nuevas rutas definidas por el usuario.
@@ -72,12 +72,12 @@ namespace ExtractorFicherosWPF
                     }
 
                 }
-           /* }
-            catch
+            }
+            catch(Exception ex)
             {
-                
+                MainWindow.MensajeError(ex);
                 return false;
-            }*/
+            }
             return true;
 
         }
