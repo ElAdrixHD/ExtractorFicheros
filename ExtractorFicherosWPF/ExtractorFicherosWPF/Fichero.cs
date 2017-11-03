@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 //Añadido
 using System.IO;
 using System.Threading;
+using System.Diagnostics;
 
 namespace ExtractorFicherosWPF
 {
@@ -76,7 +77,9 @@ namespace ExtractorFicherosWPF
             catch(Exception ex)
             {
                 MainWindow.MensajeError(ex);
+
                 return false;
+                
             }
             return true;
 

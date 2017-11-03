@@ -17,6 +17,7 @@ using System.IO;
 using System.Diagnostics; //Este espacio de nombre puede abrir procesos para abrir paginas webs (github)
 using Microsoft.Win32;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace ExtractorFicherosWPF
 {
@@ -65,6 +66,7 @@ namespace ExtractorFicherosWPF
         private void AbrirGit_Adrian()
         {
             Process.Start("https://github.com/ElAdrixHD/");
+            
         }
 
         /// <summary>
@@ -88,7 +90,9 @@ namespace ExtractorFicherosWPF
 
         public static void MensajeError(Exception ex)
         {
-            System.Windows.MessageBox.Show(ex.Message, "Excepcion... Fatal Error", MessageBoxButton.OK,MessageBoxImage.Error);
+            
+            System.Windows.MessageBox.Show(ex.Message+ "\nLa aplicación se reiniciara en 2 segundos", "Excepcion... Fatal Error", MessageBoxButton.OK,MessageBoxImage.Error);
+            
         }
 
         #endregion

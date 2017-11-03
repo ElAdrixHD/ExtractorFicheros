@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\
+D:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\
 ExtractorFicherosWPF
 none
 false
 DEBUG;TRACE
-F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\App.xaml
+D:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\App.xaml
 2753184342
 
-12974474136
+122004099275
 14-1609446650
 MainWindow.xaml;VentanaAcercaDe_Principal.xaml;
 
-False
+True
 
