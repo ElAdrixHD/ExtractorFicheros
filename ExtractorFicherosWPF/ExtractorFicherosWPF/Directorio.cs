@@ -125,7 +125,7 @@ namespace ExtractorFicherosWPF
                             {
                               
                                 subdirectorioanadidofinal = dEncontrados[j].ToString();                               
-                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults")
+                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "TestResults")
                                 {
 
                                             tmp = ArrayRutasOriginales[i];
