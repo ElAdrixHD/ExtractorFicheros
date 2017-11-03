@@ -106,7 +106,7 @@ namespace ExtractorFicherosWPF
 
             //POSIBLE METODO LLAMADO "BUSQUEDA PROFUNDA"
             //-Remontando rutas originales finales "relacionejercicios\ejercicio1\app_reloj"
-           
+            int k = 0;
             for (int i = 0; i < ArrayRutasOriginales.Length; i++)
             {
                 string tmp = string.Empty;
@@ -118,33 +118,38 @@ namespace ExtractorFicherosWPF
                     if (dEncontrados[0].ToString() != "")
                     {
                         //Este buble comprueba que en el nivel de la ruta en el que se encuentra hay un fichero ".cs " si no es asi busca otro subdirectorio y avanza hasta encontrarlos.
-
+                        
                         do
                         {
+                            
                             for (int j = 0; j < dEncontrados.Length; j++)
                             {
-                              
+                                
                                 subdirectorioanadidofinal = dEncontrados[j].ToString();                               
-                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "TestResults")
+                                if (directorios[k].ToString() == dEncontrados[j].ToString())
                                 {
 
                                             tmp = ArrayRutasOriginales[i];
                                             tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
                                             ArrayRutasOriginales[i] = tmp;
                                             Fichero mifichero = new Fichero();
-                                            hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);                                          
-                                                                              
+                                            hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
+                                                                                                                      
                                     
                                 }
-                              
+                                 
                             }
                         } while (hayfichero == false);
-                       
+                        if (k < directorios.Length)
+                        {
+                            k++;
+                        } 
                         
 
                     }
                 } while (dEncontrados[0].ToString() == "");
 
+                
             }
 
 
