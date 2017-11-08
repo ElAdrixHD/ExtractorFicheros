@@ -13,8 +13,7 @@ namespace ExtractorFicherosWPF
     class Fichero
     {
 
-        #region Variables globales
-        int opcion = 0;
+        #region Variables globales   
         Directorio miDirectorio = new Directorio();
         string[] arryRutasOriginales;
         string[] arrayRutasExe;//Array donde guardaremos la coleccion de rutas originales hasta los ejecutables
@@ -22,7 +21,6 @@ namespace ExtractorFicherosWPF
         string[] arrayNombreProyectos;
         string[] Rutasnuevas;
 
-        bool sisepuede;
         #endregion
 
         /// <Metodo de Lectura de ficheros Cs>
@@ -76,8 +74,9 @@ namespace ExtractorFicherosWPF
             }
             catch(Exception ex)
             {
-                MainWindow.MensajeError(ex);
-
+               
+                 MainWindow.MensajeError(ex);
+  
                 return false;
                 
             }
@@ -90,22 +89,29 @@ namespace ExtractorFicherosWPF
         /// </summary>
         public void LecturaFicheroExe()
         {
-            for (int i = 0; i < arryRutasOriginales.Length; i++)
+            try
             {
-
-                arrayNombreProyectos = miDirectorio.DevuelveNombreProyectos();
-                DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
-                FileInfo[] fichero2;
-                fichero2 = directorio2.GetFiles(arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" 
-
-                foreach (FileInfo fichero in fichero2)
+                for (int i = 0; i < arryRutasOriginales.Length; i++)
                 {
-                    FileInfo mifichero3 = new FileInfo(fichero.FullName);
-                    string combinacionRutasFinales = string.Empty;
-                    combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + arrayNombreProyectos[i] + ".exe";
-                    File.Copy(mifichero3.ToString(), combinacionRutasFinales);
 
+                    arrayNombreProyectos = miDirectorio.DevuelveNombreProyectos();
+                    DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
+                    FileInfo[] fichero2;
+                    fichero2 = directorio2.GetFiles(arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" 
+
+                    foreach (FileInfo fichero in fichero2)
+                    {
+                        FileInfo mifichero3 = new FileInfo(fichero.FullName);
+                        string combinacionRutasFinales = string.Empty;
+                        combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + arrayNombreProyectos[i] + ".exe";
+                        File.Copy(mifichero3.ToString(), combinacionRutasFinales);
+
+                    }
                 }
+            }
+            catch(Exception ex) {
+
+                MainWindow.MensajeError(ex);
             }
         }
 

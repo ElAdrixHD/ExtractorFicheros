@@ -83,3 +83,4 @@ F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\Ventana
 F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.g.resources
 F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.Properties.Resources.resources
 F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.GenerateResource.Cache
+B:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.CoreCompileInputs.cache

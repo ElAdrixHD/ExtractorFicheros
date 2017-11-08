@@ -28,6 +28,8 @@ namespace ExtractorFicherosWPF
     {
 
         Fichero mifichero = new Fichero();
+        static  bool  saliobien = true;
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -74,29 +76,42 @@ namespace ExtractorFicherosWPF
         /// </summary>
         private void Ejecucion()
         {
-            bool saliobien;
-            
-            do
-            {
-                saliobien = mifichero.LecturaFicheros();
-            } while (saliobien == false);
-            mifichero.LecturaFicheroExe();
 
-            TextBox_TodoBien.Opacity = 100;
-            Path_Origen.Text = "Path";
-            Path_Destino.Text = "Path";
-            BotonIniciar.IsEnabled = false;
+
+            
+                saliobien = mifichero.LecturaFicheros();
+
+                mifichero.LecturaFicheroExe();
+
+                TextBox_TodoBien.Opacity = 100;
+                Path_Origen.Text = "Path";
+                Path_Destino.Text = "Path";
+                BotonIniciar.IsEnabled = false;
+            if (saliobien == true)
+            {
+                SolidColorBrush colorerror = new SolidColorBrush(Colors.DarkGreen);
+                TextBox_TodoBien.Foreground = colorerror;
+                TextBox_TodoBien.Text = "Proceso completado satifactoriamente!.";
+            }
+            if (saliobien == false)
+            {
+                SolidColorBrush colorerror = new SolidColorBrush(Colors.DarkRed);
+                TextBox_TodoBien.Foreground = colorerror;
+                TextBox_TodoBien.Text = "¡ERROR!,Proceso no completado. Comprueba las rutas por favor.";
+                
+            }
         }
 
-        public static void MensajeError(Exception ex)
+        public static bool MensajeError(Exception ex)
         {
-            
-            System.Windows.MessageBox.Show(ex.Message+ "\nLa aplicación se reiniciara en 2 segundos", "Excepcion... Fatal Error", MessageBoxButton.OK,MessageBoxImage.Error);
+
+          return  saliobien = false;     
             
         }
 
         #endregion
 
+        #region Metodos de Eventos
         private void MiMenu_Salir_Click(object sender, RoutedEventArgs e)
         {
             CerrarApp();
@@ -119,6 +134,9 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Origen_Click(object sender, RoutedEventArgs e)
         {
+            //Limpieza texbox de mensajes de error y completo
+            TextBox_TodoBien.Text = " ";
+            //-------------------------------------------
 
             Directorio miDirectorio = new Directorio();
             Path_Origen.Text = miDirectorio.CargarRutaOrigen();
@@ -139,6 +157,10 @@ namespace ExtractorFicherosWPF
 
         private void BotonExaminar_Destino_Click(object sender, RoutedEventArgs e)
         {
+            //Limpieza texbox de mensajes de error y completo
+            TextBox_TodoBien.Text = " ";
+            //-------------------------------------------
+
             Directorio miDirectorio = new Directorio();
             Path_Destino.Text = miDirectorio.CargarRutaDestino();
             if (Path_Destino.Text == "")
@@ -166,5 +188,6 @@ namespace ExtractorFicherosWPF
                 
             }
         }
+        #endregion
     }
 }
