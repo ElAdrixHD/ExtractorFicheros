@@ -11,7 +11,7 @@ namespace ExtractorFicherosWPF
 {
     class Directorio 
     {
-
+//COMEME LOS HUEVOS CABRON
 
         #region variables globales
         string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros. 
