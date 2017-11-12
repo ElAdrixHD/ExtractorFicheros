@@ -11,7 +11,7 @@ namespace ExtractorFicherosWPF
 {
     class Directorio 
     {
-//COMEME LOS HUEVOS CABRON
+
 
         #region variables globales
         string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros. 
@@ -125,7 +125,7 @@ namespace ExtractorFicherosWPF
                             {
 
                                 subdirectorioanadidofinal = dEncontrados[j].ToString();
-                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults" && subdirectorioanadidofinal != ".git")
+                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "Visual Studio 2012")//Simplificar o reorganizar con patrones..
                                 {
 
                                     tmp = ArrayRutasOriginales[i];
