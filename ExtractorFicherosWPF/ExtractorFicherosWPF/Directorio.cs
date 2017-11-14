@@ -113,6 +113,7 @@ namespace ExtractorFicherosWPF
 
                 DirectoryInfo directorio2 = new DirectoryInfo(ArrayRutasOriginales[i]);
                 DirectoryInfo[] dEncontrados = directorio2.GetDirectories();
+                Fichero mifichero = new Fichero();//Cambiando
                 do
                 {
                     if (dEncontrados[0].ToString() != "")
@@ -121,23 +122,27 @@ namespace ExtractorFicherosWPF
 
                         do
                         {
-                            for (int j = 0; j < dEncontrados.Length; j++)
+                            if (mifichero.CompruebaFichero(ArrayRutasOriginales[i]) == false)// Linea nueva NUEVA
                             {
-
-                                subdirectorioanadidofinal = dEncontrados[j].ToString();
-                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "Visual Studio 2012")//Simplificar o reorganizar con patrones..
+                                for (int j = 0; j < dEncontrados.Length; j++)
                                 {
 
-                                    tmp = ArrayRutasOriginales[i];
-                                    tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
-                                    ArrayRutasOriginales[i] = tmp;
-                                    Fichero mifichero = new Fichero();
-                                    hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
 
+                                    subdirectorioanadidofinal = dEncontrados[j].ToString();
+                                    if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "Visual Studio 2012")//Simplificar o reorganizar con patrones..
+                                    {
+
+                                        tmp = ArrayRutasOriginales[i];
+                                        tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
+                                        ArrayRutasOriginales[i] = tmp;
+                                        //Aqui se creaba antes el objeto
+                                        hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
+                                    }
 
                                 }
-
                             }
+                            else
+                                hayfichero = true;
                         } while (hayfichero == false);
 
 
