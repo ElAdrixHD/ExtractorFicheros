@@ -122,7 +122,7 @@ namespace ExtractorFicherosWPF
 
                         do
                         {
-                            if (mifichero.CompruebaFichero(ArrayRutasOriginales[i]) == false)// Linea nueva NUEVA
+                            if (mifichero.CompruebaFichero(ArrayRutasOriginales[i]) == false)
                             {
                                 for (int j = 0; j < dEncontrados.Length; j++)
                                 {
@@ -134,8 +134,7 @@ namespace ExtractorFicherosWPF
 
                                         tmp = ArrayRutasOriginales[i];
                                         tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
-                                        ArrayRutasOriginales[i] = tmp;
-                                        //Aqui se creaba antes el objeto
+                                        ArrayRutasOriginales[i] = tmp;                                      
                                         hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
                                     }
 
