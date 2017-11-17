@@ -89,16 +89,17 @@ namespace ExtractorFicherosWPF
                 BotonIniciar.IsEnabled = false;
             if (saliobien == true)
             {
-                SolidColorBrush colorerror = new SolidColorBrush(Colors.DarkGreen);
-                TextBox_TodoBien.Foreground = colorerror;
+                SolidColorBrush colorCorrecto = new SolidColorBrush(Colors.DarkGreen);
+                TextBox_TodoBien.Foreground = colorCorrecto;
                 TextBox_TodoBien.Text = "Proceso completado satifactoriamente!.";
+               
             }
             if (saliobien == false)
             {
                 SolidColorBrush colorerror = new SolidColorBrush(Colors.DarkRed);
                 TextBox_TodoBien.Foreground = colorerror;
-                TextBox_TodoBien.Text = "¡ERROR!,Proceso no completado. Comprueba las rutas por favor.";
-                
+                TextBox_TodoBien.Text = "¡ERROR!,Proceso no completado. Comprueba las rutas por favor.";               
+
             }
         }
 

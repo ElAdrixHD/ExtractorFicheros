@@ -211,7 +211,7 @@ namespace ExtractorFicherosWPF
                 partesDeUnaRutaOriginal = ArrayRutasOriginales[i].Split(Path.DirectorySeparatorChar);
                 nombreejecutable = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];//Cogemos el ultimo de el array que sera el directorio con el nombre del proyecto (el mismo que del ejecutable final)
                 Arraynombreejecutables[i] = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];
-                ArrayRutasOriginalesExe[i] = ArrayRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug" + Path.DirectorySeparatorChar + nombreejecutable + ".exe";
+                ArrayRutasOriginalesExe[i] = ArrayRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug" + Path.DirectorySeparatorChar + nombreejecutable + ".exe"; 
             }
             return ArrayRutasOriginalesExe;
         }

@@ -111,5 +111,8 @@
   <ItemGroup>
     <Resource Include="Imagenes\GitHub-Mark-32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Icono.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
