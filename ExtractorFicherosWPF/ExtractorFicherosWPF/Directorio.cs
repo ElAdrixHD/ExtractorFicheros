@@ -113,6 +113,7 @@ namespace ExtractorFicherosWPF
 
                 DirectoryInfo directorio2 = new DirectoryInfo(ArrayRutasOriginales[i]);
                 DirectoryInfo[] dEncontrados = directorio2.GetDirectories();
+                Fichero mifichero = new Fichero();//Cambiando
                 do
                 {
                     if (dEncontrados[0].ToString() != "")
@@ -121,23 +122,26 @@ namespace ExtractorFicherosWPF
 
                         do
                         {
-                            for (int j = 0; j < dEncontrados.Length; j++)
+                            if (mifichero.CompruebaFichero(ArrayRutasOriginales[i]) == false)
                             {
-
-                                subdirectorioanadidofinal = dEncontrados[j].ToString();
-                                if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "Visual Studio 2012")//Simplificar o reorganizar con patrones..
+                                for (int j = 0; j < dEncontrados.Length; j++)
                                 {
 
-                                    tmp = ArrayRutasOriginales[i];
-                                    tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
-                                    ArrayRutasOriginales[i] = tmp;
-                                    Fichero mifichero = new Fichero();
-                                    hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
 
+                                    subdirectorioanadidofinal = dEncontrados[j].ToString();
+                                    if (subdirectorioanadidofinal != ".vs" && subdirectorioanadidofinal != "TestResults" && subdirectorioanadidofinal != ".git" && subdirectorioanadidofinal != "Visual Studio 2012")//Simplificar o reorganizar con patrones..
+                                    {
+
+                                        tmp = ArrayRutasOriginales[i];
+                                        tmp += Path.DirectorySeparatorChar.ToString() + subdirectorioanadidofinal;
+                                        ArrayRutasOriginales[i] = tmp;                                      
+                                        hayfichero = mifichero.CompruebaFichero(ArrayRutasOriginales[i]);
+                                    }
 
                                 }
-
                             }
+                            else
+                                hayfichero = true;
                         } while (hayfichero == false);
 
 
@@ -206,7 +210,7 @@ namespace ExtractorFicherosWPF
                 partesDeUnaRutaOriginal = ArrayRutasOriginales[i].Split(Path.DirectorySeparatorChar);
                 nombreejecutable = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];//Cogemos el ultimo de el array que sera el directorio con el nombre del proyecto (el mismo que del ejecutable final)
                 Arraynombreejecutables[i] = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];
-                ArrayRutasOriginalesExe[i] = ArrayRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug" + Path.DirectorySeparatorChar + nombreejecutable + ".exe";
+                ArrayRutasOriginalesExe[i] = ArrayRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug" + Path.DirectorySeparatorChar + nombreejecutable + ".exe"; 
             }
             return ArrayRutasOriginalesExe;
         }

@@ -97,13 +97,13 @@ namespace ExtractorFicherosWPF
                     arrayNombreProyectos = miDirectorio.DevuelveNombreProyectos();
                     DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
                     FileInfo[] fichero2;
-                    fichero2 = directorio2.GetFiles(arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" 
+                    fichero2 = directorio2.GetFiles("*"+arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" <-----PRUEBA!
 
                     foreach (FileInfo fichero in fichero2)
                     {
                         FileInfo mifichero3 = new FileInfo(fichero.FullName);
                         string combinacionRutasFinales = string.Empty;
-                        combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + arrayNombreProyectos[i] + ".exe";
+                        combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + arrayNombreProyectos[i] + ".exe";                       
                         File.Copy(mifichero3.ToString(), combinacionRutasFinales);
 
                     }
