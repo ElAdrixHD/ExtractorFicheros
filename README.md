@@ -1,6 +1,6 @@
 # ExtractorFicheros
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/s6fl4c92fvfd5a07/branch/master?svg=true)](https://ci.appveyor.com/project/EduFdezSoy/extractorficheros/branch/master)  
-Linux: [![Build Status](https://travis-ci.org/EduFdezSoy/ExtractorFicheros.svg?branch=master)](https://travis-ci.org/EduFdezSoy/ExtractorFicheros)  
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/nlq03nc95q5d8xac/branch/master?svg=true)](https://ci.appveyor.com/project/ElAdrixHD/extractorficheros/branch/master)  
+Linux: [![Build Status](https://travis-ci.org/ElAdrixHD/ExtractorFicheros.svg?branch=master)](https://travis-ci.org/ElAdrixHD/ExtractorFicheros)  
   
 ### Función
 
