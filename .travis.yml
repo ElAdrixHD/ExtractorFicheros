@@ -1,0 +1,4 @@
+language: csharp
+solution: "./ExtractorFicherosWPF/ExtractorFicherosWPF.sln"
+script:
+- xbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
