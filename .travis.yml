@@ -6,4 +6,4 @@ before_install:
 script:
 - msbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
 notifications:
-  email: false
+  email: eladrixhd@gmail.com
