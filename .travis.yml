@@ -4,6 +4,6 @@ before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y libmono-system-windows-forms4.0-cil
 script:
-- xbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
+- msbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
 notifications:
   email: false
