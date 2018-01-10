@@ -1,5 +1,6 @@
 # ExtractorFicheros
-[![Build status](https://ci.appveyor.com/api/projects/status/s6fl4c92fvfd5a07/branch/master?svg=true)](https://ci.appveyor.com/project/EduFdezSoy/extractorficheros/branch/master)  
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/s6fl4c92fvfd5a07/branch/master?svg=true)](https://ci.appveyor.com/project/EduFdezSoy/extractorficheros/branch/master)  
+Linux: [![Build Status](https://travis-ci.org/EduFdezSoy/ExtractorFicheros.svg?branch=master)](https://travis-ci.org/EduFdezSoy/ExtractorFicheros)
 Función:
 
 Dados los parametros solicitados en el programa, recopila la información de los subdirectorios de la ruta de origen y busca en esos subdirectorios los codigos fuentes y los ejecutables de los proyectos del Visual Studio y te los copia en otra ruta el cual se ha especificado en los parametros del programa.
