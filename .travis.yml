@@ -3,4 +3,4 @@ solution: "./ExtractorFicherosWPF/ExtractorFicherosWPF.sln"
 script:
 - xbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
 notifications:
-  email: false
+  email: eladrixhd@gmail.com
