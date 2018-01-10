@@ -3,6 +3,4 @@ solution: "./ExtractorFicherosWPF/ExtractorFicherosWPF.sln"
 script:
 - xbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
 notifications:
-  email:
-    on_success: never
-    on_failure: never
+  email: false
