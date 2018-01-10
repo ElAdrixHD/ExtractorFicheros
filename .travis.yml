@@ -1,5 +1,8 @@
 language: csharp
 solution: "./ExtractorFicherosWPF/ExtractorFicherosWPF.sln"
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y libmono-system-windows-forms4.0-cil
 script:
 - xbuild ./ExtractorFicherosWPF/ExtractorFicherosWPF.sln
 notifications:
