@@ -1,5 +1,5 @@
 # ExtractorFicheros
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/nlq03nc95q5d8xac/branch/master?svg=true)](https://ci.appveyor.com/project/ElAdrixHD/extractorficheros/branch/master)  
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/nlq03nc95q5d8xac/branch/master?svg=true)](https://ci.appveyor.com/project/ElAdrixHD/prueba-xwt/branch/master)  
 Linux/OSX: [![Build Status](https://travis-ci.org/ElAdrixHD/ExtractorFicheros.svg?branch=master)](https://travis-ci.org/ElAdrixHD/ExtractorFicheros)  
   
 ### Función
