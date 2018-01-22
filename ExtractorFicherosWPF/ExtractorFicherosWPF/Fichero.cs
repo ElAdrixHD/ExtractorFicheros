@@ -48,11 +48,11 @@ namespace ExtractorFicherosWPF
 
 
                         arryUnaClase = new string[fichero.Length];//Creamos un array con la longitud de la cantiadad de ficheros encontrados
-                        Console.WriteLine("[{0}] Nombre fichero -> {1} .", k + 1, fichero[k].Name.ToString());
+                       
                         string tmp = string.Empty;
                         tmp = fichero[k].ToString(); ;
                         tmp = fichero[k].FullName.ToString();
-                        Console.WriteLine("\n\t\t---Fin Ficheros de esa Ruta ----\n");
+                       
 
                         if (fichero.LongLength != 0)//Si encontro algo
                         {
@@ -65,6 +65,7 @@ namespace ExtractorFicherosWPF
                             //Copia cada fichero ".cs " a su directorio correspondiente
                             FileInfo mifichero2 = new FileInfo(arryUnaClase[k]);
                             mifichero2.CopyTo(Rutasnuevas[i] + Path.DirectorySeparatorChar + nombreFichero);
+                           
 
 
                         }
@@ -97,7 +98,10 @@ namespace ExtractorFicherosWPF
                     arrayNombreProyectos = miDirectorio.DevuelveNombreProyectos();
                     DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
                     FileInfo[] fichero2;
+                    FileInfo[] fichero3;// -> Añadido NUEVO
                     fichero2 = directorio2.GetFiles("*"+arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" <-----PRUEBA!
+                    //fichero3 = directorio2.GetFiles("*.dll"); ->Para buscary extraer cualquier DLL que usa nuestro proyecto
+                    
 
                     foreach (FileInfo fichero in fichero2)
                     {

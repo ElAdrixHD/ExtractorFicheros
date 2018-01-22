@@ -37,48 +37,45 @@ namespace ExtractorFicherosWPF
         }
 
         #region Metodos
-        /// <summary>
+        /// <CerrarAppInfo>
         /// Cierra la aplicación
-        /// </summary>
+        /// </CerrarAppInfo>
         private void CerrarApp()
         {
             App.Current.Shutdown();
         }
 
-        /// <summary>
+        /// <VentanaAcercaDe_AbrirInfo>
         /// Abre la ventana "Acerca de"
-        /// </summary>
+        /// </VentanaAcercaDe_AbrirInfo>
         private void VentanaAcercaDe_Abrir()
         {
             VentanaAcercaDe_Principal ventanaAcercaDe = new VentanaAcercaDe_Principal();
             ventanaAcercaDe.ShowDialog();
         }
 
-        /// <summary>
+        /// <AbrirGit_PabloInfo>
         /// Abre el GitHub de Pablo
-        /// </summary>
+        /// </AbrirGit_PabloInfo>
         private void AbrirGit_Pablo()
         {
             Process.Start("https://github.com/rasky0607/");
         }
 
-        /// <summary>
+        /// <AbrirGit_AdrianInfo>
         /// Abre el GitHub de Adrian
-        /// </summary>
+        /// </AbrirGit_AdrianInfo>
         private void AbrirGit_Adrian()
         {
             Process.Start("https://github.com/ElAdrixHD/");
             
         }
 
-        /// <summary>
-        /// Ejecuta el programa
-        /// </summary>
+        /// <EjecucionInfo>
+        /// Realiza las distintas llamadas hacia las clases para ejecutar el programa 
+        /// </EjecucionInfo>
         private void Ejecucion()
-        {
-
-
-            
+        {           
                 saliobien = mifichero.LecturaFicheros();
 
                 mifichero.LecturaFicheroExe();
@@ -103,6 +100,11 @@ namespace ExtractorFicherosWPF
             }
         }
 
+        /// <MensajeErrorInfo>
+        /// Mensaje de Error lanzado si surge alguna interrupcion durante la ejecucion del programa
+        /// </MensajeErrorInfo>
+        /// <param name="ex">Eleva el mensaje de Exception</param>
+        /// <returns>boolean falso para notificar un error en la ejecuccion</returns>
         public static bool MensajeError(Exception ex)
         {
 
