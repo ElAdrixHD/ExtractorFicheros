@@ -55,7 +55,7 @@ namespace ExtractorFicherosWPF
         }
 
         /// <AbrirGit_PabloInfo>
-        /// Abre el GitHub de Pablo
+        /// Abre el GitHub de Pablo en el navegador
         /// </AbrirGit_PabloInfo>
         private void AbrirGit_Pablo()
         {
@@ -63,7 +63,7 @@ namespace ExtractorFicherosWPF
         }
 
         /// <AbrirGit_AdrianInfo>
-        /// Abre el GitHub de Adrian
+        /// Abre el GitHub de Adrian en el navegador
         /// </AbrirGit_AdrianInfo>
         private void AbrirGit_Adrian()
         {
@@ -72,10 +72,10 @@ namespace ExtractorFicherosWPF
         }
 
         /// <EjecucionInfo>
-        /// Realiza las distintas llamadas hacia las clases para ejecutar el programa 
+        ///  LLama a todas las clases implicadas en el programa para una ejecuccion de este.
         /// </EjecucionInfo>
         private void Ejecucion()
-        {           
+        {      
                 saliobien = mifichero.LecturaFicheros();
 
                 mifichero.LecturaFicheroExe();
@@ -100,11 +100,6 @@ namespace ExtractorFicherosWPF
             }
         }
 
-        /// <MensajeErrorInfo>
-        /// Mensaje de Error lanzado si surge alguna interrupcion durante la ejecucion del programa
-        /// </MensajeErrorInfo>
-        /// <param name="ex">Eleva el mensaje de Exception</param>
-        /// <returns>boolean falso para notificar un error en la ejecuccion</returns>
         public static bool MensajeError(Exception ex)
         {
 
@@ -114,7 +109,7 @@ namespace ExtractorFicherosWPF
 
         #endregion
 
-        #region Metodos de Eventos
+        #region Metodos de Eventos Click
         private void MiMenu_Salir_Click(object sender, RoutedEventArgs e)
         {
             CerrarApp();

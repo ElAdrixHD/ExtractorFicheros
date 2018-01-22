@@ -84,16 +84,20 @@ F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\Extract
 F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.Properties.Resources.resources
 F:\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.GenerateResource.Cache
 B:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.CoreCompileInputs.cache
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.exe
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.pdb
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csprojResolveAssemblyReference.cache
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\MainWindow.g.cs
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\VentanaAcercaDe_Principal.g.cs
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\App.g.cs
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF_MarkupCompile.cache
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF_MarkupCompile.lref
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\MainWindow.baml
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\VentanaAcercaDe_Principal.baml
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.g.resources
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.Properties.Resources.resources
-C:\repositoriosGit\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.GenerateResource.Cache
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.exe.config
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.exe
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\bin\Debug\ExtractorFicherosWPF.pdb
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csprojResolveAssemblyReference.cache
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\MainWindow.g.cs
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\VentanaAcercaDe_Principal.g.cs
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\App.g.cs
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF_MarkupCompile.cache
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF_MarkupCompile.lref
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\MainWindow.baml
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\VentanaAcercaDe_Principal.baml
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.g.resources
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.Properties.Resources.resources
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.GenerateResource.Cache
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.csproj.CoreCompileInputs.cache
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.exe
+E:\Repositorios en Git\ExtractorFicheros\ExtractorFicherosWPF\ExtractorFicherosWPF\obj\Debug\ExtractorFicherosWPF.pdb
