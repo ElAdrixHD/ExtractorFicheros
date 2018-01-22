@@ -156,6 +156,7 @@ namespace ExtractorFicherosWPF
             return ArrayRutasOriginales;
         }
 
+
         /// <Metodo que crea la ruta hacia el nuevo directorio raiz>
         /// Este metodo crea  la ruta hacia el nuevo directorio raiz donde se crearan todos
         /// los de mas subdirectorios 
@@ -217,6 +218,7 @@ namespace ExtractorFicherosWPF
 
         public string[] DevuelveNombreDirectorioRaizdeProyecto()
         {
+            ArrayComprobacionRutasOriginales = null;
             string[] partesDeUnaRutaOriginal;
             string nombreDirectorioRaizProyecto = string.Empty;
             ArrayNomDirectorioRaizProyecto = new string[ArrayComprobacionRutasOriginales.Length];

@@ -29,7 +29,8 @@ namespace ExtractorFicherosWPF
 
         Fichero mifichero = new Fichero();
         static  bool  saliobien = true;
-       
+       public static bool sacaFicherosDll = false;//Cuando esta marcada la obcion de obtener solo los .cs y .exe
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,48 +38,45 @@ namespace ExtractorFicherosWPF
         }
 
         #region Metodos
-        /// <summary>
+        /// <CerrarAppInfo>
         /// Cierra la aplicación
-        /// </summary>
+        /// </CerrarAppInfo>
         private void CerrarApp()
         {
             App.Current.Shutdown();
         }
 
-        /// <summary>
+        /// <VentanaAcercaDe_AbrirInfo>
         /// Abre la ventana "Acerca de"
-        /// </summary>
+        /// </VentanaAcercaDe_AbrirInfo>
         private void VentanaAcercaDe_Abrir()
         {
             VentanaAcercaDe_Principal ventanaAcercaDe = new VentanaAcercaDe_Principal();
             ventanaAcercaDe.ShowDialog();
         }
 
-        /// <summary>
-        /// Abre el GitHub de Pablo
-        /// </summary>
+        /// <AbrirGit_PabloInfo>
+        /// Abre el GitHub de Pablo en el navegador
+        /// </AbrirGit_PabloInfo>
         private void AbrirGit_Pablo()
         {
             Process.Start("https://github.com/rasky0607/");
         }
 
-        /// <summary>
-        /// Abre el GitHub de Adrian
-        /// </summary>
+        /// <AbrirGit_AdrianInfo>
+        /// Abre el GitHub de Adrian en el navegador
+        /// </AbrirGit_AdrianInfo>
         private void AbrirGit_Adrian()
         {
             Process.Start("https://github.com/ElAdrixHD/");
             
         }
 
-        /// <summary>
-        /// Ejecuta el programa
-        /// </summary>
+        /// <EjecucionInfo>
+        ///  LLama a todas las clases implicadas en el programa para una ejecuccion de este.
+        /// </EjecucionInfo>
         private void Ejecucion()
-        {
-
-
-            
+        {                 
                 saliobien = mifichero.LecturaFicheros();
 
                 mifichero.LecturaFicheroExe();
@@ -112,7 +110,7 @@ namespace ExtractorFicherosWPF
 
         #endregion
 
-        #region Metodos de Eventos
+        #region Metodos de Eventos Click
         private void MiMenu_Salir_Click(object sender, RoutedEventArgs e)
         {
             CerrarApp();
@@ -190,5 +188,10 @@ namespace ExtractorFicherosWPF
             }
         }
         #endregion
+
+        private void rbConDll_Checked(object sender, RoutedEventArgs e)
+        {
+            sacaFicherosDll = true;
+        }
     }
 }

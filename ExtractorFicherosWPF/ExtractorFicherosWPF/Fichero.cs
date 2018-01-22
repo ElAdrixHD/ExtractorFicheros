@@ -97,8 +97,11 @@ namespace ExtractorFicherosWPF
                     arrayNombreProyectos = miDirectorio.DevuelveNombreProyectos();
                     DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
                     FileInfo[] fichero2;
-                    fichero2 = directorio2.GetFiles("*"+arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" <-----PRUEBA!
-
+                    FileInfo[] fichero3;//Dlls
+                    fichero2 = directorio2.GetFiles("*"+arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" 
+                    fichero3 = directorio2.GetFiles("*.dll");                
+                    
+                    //Ficheros .exe
                     foreach (FileInfo fichero in fichero2)
                     {
                         FileInfo mifichero3 = new FileInfo(fichero.FullName);
@@ -106,6 +109,20 @@ namespace ExtractorFicherosWPF
                         combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + arrayNombreProyectos[i] + ".exe";                       
                         File.Copy(mifichero3.ToString(), combinacionRutasFinales);
 
+                    }
+                    if (MainWindow.sacaFicherosDll)
+                    {
+                        //Ficheros .dll
+                        foreach (FileInfo fichero in fichero3)
+                        {
+                            FileInfo mifichero4 = new FileInfo(fichero.FullName);
+                            string nombreDll = fichero.Name;
+                            string combinacionRutasFinales = string.Empty;
+                            combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + nombreDll;
+                            File.Copy(mifichero4.ToString(), combinacionRutasFinales);
+
+
+                        }
                     }
                 }
             }
