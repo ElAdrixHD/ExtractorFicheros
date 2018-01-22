@@ -29,7 +29,8 @@ namespace ExtractorFicherosWPF
 
         Fichero mifichero = new Fichero();
         static  bool  saliobien = true;
-       
+       public static bool sacaFicherosDll = false;//Cuando esta marcada la obcion de obtener solo los .cs y .exe
+
         public MainWindow()
         {
             InitializeComponent();
@@ -75,7 +76,7 @@ namespace ExtractorFicherosWPF
         ///  LLama a todas las clases implicadas en el programa para una ejecuccion de este.
         /// </EjecucionInfo>
         private void Ejecucion()
-        {      
+        {                 
                 saliobien = mifichero.LecturaFicheros();
 
                 mifichero.LecturaFicheroExe();
@@ -187,5 +188,10 @@ namespace ExtractorFicherosWPF
             }
         }
         #endregion
+
+        private void rbConDll_Checked(object sender, RoutedEventArgs e)
+        {
+            sacaFicherosDll = true;
+        }
     }
 }

@@ -41,7 +41,9 @@
         <Button x:Name="BotonExaminar_Destino" Content="Examinar" HorizontalAlignment="Left" Margin="563,156,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Destino_Click"/>
         <Button x:Name="BotonIniciar" Content="Iniciar Programa" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Margin="480,263,0,0" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonIniciar_Click" IsEnabled="False"/>
         <TextBlock x:Name="TextBox_TodoBien" HorizontalAlignment="Left" Margin="10,267,0,0" TextWrapping="Wrap" Text="Programa Completado... Todo Correcto" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Foreground="Lime" Opacity="0"/>
-     
+        <RadioButton Name="rbSinDll" Content="Extraer solo ficheros .exe y .cs!" HorizontalAlignment="Left" Margin="33,204,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton Name="rbConDll" Content="Extraer también DLLs del directorio Debug!" HorizontalAlignment="Left" Margin="315,204,0,0" VerticalAlignment="Top" Checked="rbConDll_Checked"/>
+
 
     </Grid>
 </Window>
