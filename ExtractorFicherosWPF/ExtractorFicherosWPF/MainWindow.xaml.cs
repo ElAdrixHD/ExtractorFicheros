@@ -89,7 +89,7 @@ namespace ExtractorFicherosWPF
             {
                 SolidColorBrush colorCorrecto = new SolidColorBrush(Colors.DarkGreen);
                 TextBox_TodoBien.Foreground = colorCorrecto;
-                TextBox_TodoBien.Text = "Proceso completado satifactoriamente!.";
+                TextBox_TodoBien.Text = "Proceso completado satisfactoriamente!.";
                
             }
             if (saliobien == false)
@@ -192,6 +192,20 @@ namespace ExtractorFicherosWPF
         private void rbConDll_Checked(object sender, RoutedEventArgs e)
         {
             sacaFicherosDll = true;
+        }
+
+        private void Version_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (Path_Origen.IsEnabled && Path_Destino.IsEnabled)
+            {
+                Path_Destino.IsEnabled = false;
+                Path_Origen.IsEnabled = false;
+            }
+            else
+            {
+                Path_Origen.IsEnabled = true;
+                Path_Destino.IsEnabled = true;
+            }
         }
     }
 }

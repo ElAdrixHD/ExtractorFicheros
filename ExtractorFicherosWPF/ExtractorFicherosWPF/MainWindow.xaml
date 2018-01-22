@@ -8,7 +8,7 @@
         Title="Extractor Ficheros WPF" Height="339.017" Width="699.437"
         ResizeMode="CanMinimize" Background="#FF94C7FF" Icon="Imagenes/Icono.PNG">
     <Grid>
-        <Menu x:Name="MiMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="671">
+        <Menu x:Name="MiMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="693" Margin="0,0,-0.2,0">
             <MenuItem x:Name="MiMenu_Archivo" Header="Archivo" Height="20" FontFamily="Linux Biolinum G" FontSize="14">
                 <MenuItem x:Name="MiMenu_Salir" Header="Salir" Click="MiMenu_Salir_Click"/>
             </MenuItem>
@@ -43,6 +43,7 @@
         <TextBlock x:Name="TextBox_TodoBien" HorizontalAlignment="Left" Margin="10,267,0,0" TextWrapping="Wrap" Text="Programa Completado... Todo Correcto" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Foreground="Lime" Opacity="0"/>
         <RadioButton Name="rbSinDll" Content="Extraer solo ficheros .exe y .cs!" HorizontalAlignment="Left" Margin="33,204,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <RadioButton Name="rbConDll" Content="Extraer también DLLs del directorio Debug!" HorizontalAlignment="Left" Margin="315,204,0,0" VerticalAlignment="Top" Checked="rbConDll_Checked"/>
+        <TextBlock x:Name="Version" HorizontalAlignment="Left" Margin="662,286,0,0" TextWrapping="Wrap" Text="1.0.2" VerticalAlignment="Top" FontSize="10" MouseEnter="Version_MouseEnter"/>
 
 
     </Grid>
