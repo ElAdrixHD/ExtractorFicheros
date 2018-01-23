@@ -14,12 +14,13 @@ namespace ExtractorFicherosWPF
     {
 
         #region Variables globales   
-        Directorio miDirectorio = new Directorio();
-        string[] arryRutasOriginales;
-        string[] arrayRutasExe;//Array donde guardaremos la coleccion de rutas originales hasta los ejecutables
-        string[] arryUnaClase;//Donde guardaremos la ruta hacia cada fichero ".cs" de un proyecto.
-        string[] arrayNombreProyectos;
-        string[] Rutasnuevas;
+        static string[] arryRutasOriginales;
+        static string[] arrayRutasExe;//Array donde guardaremos la coleccion de rutas originales hasta los ejecutables
+        static string[] arryUnaClase;//Donde guardaremos la ruta hacia cada fichero ".cs" de un proyecto.
+        static string[] arrayNombreProyectos;
+        static string[] Rutasnuevas;
+        
+        
 
         #endregion
 
@@ -27,13 +28,14 @@ namespace ExtractorFicherosWPF
         /// Lee todos los ficheros  dentro de un directorio concreto y los copia cada uan de las nuevas rutas respectivas
         /// <Metodo de Lectura de ficheros Cs>
 
-        public bool LecturaFicheros()
+        public static bool LecturaFicheros()
         {
             try
             {
-                arryRutasOriginales = miDirectorio.LecturaSubDirectorios();
-                arrayRutasExe = miDirectorio.DevuelveRutasOriginalesExe();
-                Rutasnuevas = miDirectorio.DevuelveRutasNuevas();//Guarda las nuevas rutas definidas por el usuario.
+                
+                arryRutasOriginales = Directorio.LecturaSubDirectorios();
+                arrayRutasExe = Directorio.DevuelveRutasOriginalesExe();
+                Rutasnuevas = Directorio.DevuelveRutasNuevas();//Guarda las nuevas rutas definidas por el usuario.
 
                 for (int i = 0; i < arryRutasOriginales.Length; i++)
                 {
@@ -61,11 +63,9 @@ namespace ExtractorFicherosWPF
                             string nombreFichero = string.Empty;
                             nombreFichero = fichero[k].Name;
 
-
                             //Copia cada fichero ".cs " a su directorio correspondiente
                             FileInfo mifichero2 = new FileInfo(arryUnaClase[k]);
                             mifichero2.CopyTo(Rutasnuevas[i] + Path.DirectorySeparatorChar + nombreFichero);
-
 
                         }
                     }
@@ -87,20 +87,19 @@ namespace ExtractorFicherosWPF
         /// <Lee la ruta hacia los ficheros ejecutables(.exe)>
         /// Lee la ruta hacia los ficheros ejecutables y los copia en cada uan de la nuevas rutas correspondientes.
         /// </summary>
-        public void LecturaFicheroExe()
+        public static void LecturaFicheroExe()
         {
             try
             {
                 for (int i = 0; i < arryRutasOriginales.Length; i++)
                 {
 
-                    arrayNombreProyectos = miDirectorio.DevuelveNombreProyectos();
+                    arrayNombreProyectos = Directorio.DevuelveNombreProyectos();
                     DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
                     FileInfo[] fichero2;
                     FileInfo[] fichero3;//Dlls
                     fichero2 = directorio2.GetFiles("*"+arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" 
-                    fichero3 = directorio2.GetFiles("*.dll");                
-                    
+                    fichero3 = directorio2.GetFiles("*.dll");
                     //Ficheros .exe
                     foreach (FileInfo fichero in fichero2)
                     {
@@ -120,7 +119,6 @@ namespace ExtractorFicherosWPF
                             string combinacionRutasFinales = string.Empty;
                             combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + nombreDll;
                             File.Copy(mifichero4.ToString(), combinacionRutasFinales);
-
 
                         }
                     }

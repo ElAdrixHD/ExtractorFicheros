@@ -26,10 +26,8 @@ namespace ExtractorFicherosWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        Fichero mifichero = new Fichero();
         static  bool  saliobien = true;
-       public static bool sacaFicherosDll = false;//Cuando esta marcada la obcion de obtener solo los .cs y .exe
+        public static bool sacaFicherosDll = false;//Cuando esta marcada la obcion de obtener solo los .cs y .exe
 
         public MainWindow()
         {
@@ -77,9 +75,9 @@ namespace ExtractorFicherosWPF
         /// </EjecucionInfo>
         private void Ejecucion()
         {                 
-                saliobien = mifichero.LecturaFicheros();
+                saliobien = Fichero.LecturaFicheros();
 
-                mifichero.LecturaFicheroExe();
+                Fichero.LecturaFicheroExe();
 
                 TextBox_TodoBien.Opacity = 100;
                 Path_Origen.Text = "Path";
@@ -90,21 +88,23 @@ namespace ExtractorFicherosWPF
                 SolidColorBrush colorCorrecto = new SolidColorBrush(Colors.DarkGreen);
                 TextBox_TodoBien.Foreground = colorCorrecto;
                 TextBox_TodoBien.Text = "Proceso completado satisfactoriamente!.";
-               
+                BarraProgreso.Foreground = colorCorrecto;
+                BarraProgreso.Value = BarraProgreso.Maximum;
             }
             if (saliobien == false)
             {
                 SolidColorBrush colorerror = new SolidColorBrush(Colors.DarkRed);
                 TextBox_TodoBien.Foreground = colorerror;
-                TextBox_TodoBien.Text = "¡ERROR!,Proceso no completado. Comprueba las rutas por favor.";               
-
+                TextBox_TodoBien.Text = "¡ERROR!,Proceso no completado. Comprueba las rutas por favor.";
+                BarraProgreso.Foreground = colorerror;
+                BarraProgreso.Value = BarraProgreso.Maximum/1.5;
             }
         }
 
         public static bool MensajeError(Exception ex)
         {
 
-          return  saliobien = false;     
+           return saliobien = false;    
             
         }
 
@@ -138,7 +138,7 @@ namespace ExtractorFicherosWPF
             //-------------------------------------------
 
             Directorio miDirectorio = new Directorio();
-            Path_Origen.Text = miDirectorio.CargarRutaOrigen();
+            Path_Origen.Text = Directorio.CargarRutaOrigen();
 
             if (Path_Origen.Text == "")
             {
@@ -160,8 +160,7 @@ namespace ExtractorFicherosWPF
             TextBox_TodoBien.Text = " ";
             //-------------------------------------------
 
-            Directorio miDirectorio = new Directorio();
-            Path_Destino.Text = miDirectorio.CargarRutaDestino();
+            Path_Destino.Text = Directorio.CargarRutaDestino();
             if (Path_Destino.Text == "")
             {
                 Path_Destino.Text = "Path";
@@ -183,11 +182,11 @@ namespace ExtractorFicherosWPF
             {
                 case MessageBoxResult.Yes:
                     Ejecucion();
+                    BarraProgreso.Value += 1;
                     break;
                 
             }
         }
-        #endregion
 
         private void rbConDll_Checked(object sender, RoutedEventArgs e)
         {
@@ -207,5 +206,8 @@ namespace ExtractorFicherosWPF
                 Path_Destino.IsEnabled = true;
             }
         }
+        #endregion
+
+
     }
 }

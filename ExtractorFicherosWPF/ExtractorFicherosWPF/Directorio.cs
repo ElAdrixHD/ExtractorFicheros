@@ -14,26 +14,26 @@ namespace ExtractorFicherosWPF
 
 
         #region variables globales
-        string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros. 
-        string rutaParaSubdirectorio = string.Empty;//Ruta hacia la carpeta raiz original donde leeremos todos los subdirectorios originales.
-        string[] arryRutasNuevas;//Colecion de rutas nuevas des de el directorio raiz nuevo hasta cada uno de los subdirectorios       
-        bool hayfichero = false;//Comprueba si encontro un fichero o n o en el nivel de directorios que se encuentra.
-        string[] ArrayRutasOriginales;//Rutas originales hasta el directorio mas proximo a los ".cs"
-        string[] Arraynombreejecutables;//Array de cada uno de los nombres de los ejecutables a buscar"ya que podemos encontrar varios .exe en un proyecto".
-        string[] ArrayRutasOriginalesExe;//Array de rutas hasta los ejecutables .exe
-        string[] ArrayNomDirectorioRaizProyecto;//Array del nombre de la carpeta raiz de UN PROYECTO Ej: c.\\Ejercicios\Ej1 coge solo Ej1!
-        string[] ArrayComprobacionRutasOriginales;//Este array se llena de rutas a comprobar de cada proyecto Ej. C:\\Ejercicios\EJ1\App_reloj comprueba  si dentro de esta hay otro directorio llamado igual
+        
+        static string rutaDirectoriosNuevos = string.Empty;//Directorios nuevos donde copiaremos los ficheros. 
+        static string rutaParaSubdirectorio = string.Empty;//Ruta hacia la carpeta raiz original donde leeremos todos los subdirectorios originales.
+        static string[] arryRutasNuevas;//Colecion de rutas nuevas des de el directorio raiz nuevo hasta cada uno de los subdirectorios       
+        static bool hayfichero = false;//Comprueba si encontro un fichero o n o en el nivel de directorios que se encuentra.
+        static string[] ArrayRutasOriginales;//Rutas originales hasta el directorio mas proximo a los ".cs"
+        static string[] Arraynombreejecutables;//Array de cada uno de los nombres de los ejecutables a buscar"ya que podemos encontrar varios .exe en un proyecto".
+        static string[] ArrayRutasOriginalesExe;//Array de rutas hasta los ejecutables .exe
+        static string[] ArrayNomDirectorioRaizProyecto;//Array del nombre de la carpeta raiz de UN PROYECTO Ej: c.\\Ejercicios\Ej1 coge solo Ej1!
+        static string[] ArrayComprobacionRutasOriginales;//Este array se llena de rutas a comprobar de cada proyecto Ej. C:\\Ejercicios\EJ1\App_reloj comprueba  si dentro de esta hay otro directorio llamado igual
         static string rutaOrigen = string.Empty;
         static string rutaDestino = string.Empty;
 
         #endregion 
         //---------------------------------------------------------------------------------------------------------------------
-        public string AbrirDialogo()
+        public static string AbrirDialogo()
         {
             string path = string.Empty;
             FolderBrowserDialog dialogoDirectorio = new FolderBrowserDialog();
             DialogResult resultado;
-
             try
             {
                 dialogoDirectorio.ShowNewFolderButton = true;
@@ -50,12 +50,12 @@ namespace ExtractorFicherosWPF
             return path;
         }
 
-        public string CargarRutaOrigen()
+        public static string CargarRutaOrigen()
         {
             return rutaOrigen = AbrirDialogo();
         }
 
-        public string CargarRutaDestino()
+        public static string CargarRutaDestino()
         {
             return rutaDestino = AbrirDialogo();
         }
@@ -66,11 +66,10 @@ namespace ExtractorFicherosWPF
         /// Lee el directorio raiz, y monta las rutas hasta los ficheros ".cs"
         /// </summary>
         /// <returns>ArrayRutasOriginales</returns>
-        public string[] LecturaSubDirectorios()
+        public static string[] LecturaSubDirectorios()
         {
             string subdirectorioanadidofinal = string.Empty;//Variable usada para añadir el ultimo subdirectorio mas profundo antes de llegar a los ficheros     
             string rutatmp = string.Empty; //ruta temporal , para montar la ruta hacia los nuevos directorios que se van a crear iguales que los originale, excepto el raiz.
-
             DirectoryInfo d = new DirectoryInfo(rutaOrigen);
             DirectoryInfo[] directorios = d.GetDirectories();
             ArrayRutasOriginales = new string[directorios.Length];
@@ -82,7 +81,6 @@ namespace ExtractorFicherosWPF
             for (int i = 0; i < directorios.Length; i++)
             {
                 ArrayRutasOriginales[i] = rutaOrigen + "\\" + directorios[i];//Monta y guarda todas las rutas des de la Raiz hasta cada uno de los subdirectorios.
-
             }
 
 
@@ -97,7 +95,7 @@ namespace ExtractorFicherosWPF
                 apoyoruta += Path.DirectorySeparatorChar.ToString() + directorios[i].ToString();
                 Directory.CreateDirectory(apoyoruta);
                 arryRutasNuevasTmp[i] = apoyoruta;//Guardamos las nuevas rutas, con los nuevos subdirectorios del nuevo directorio Raiz.
-                arryRutasNuevas[i] = arryRutasNuevasTmp[i];//guardo las nuevas rutas en otro Array para intentar sacarlo tambien del Metodo.           
+                arryRutasNuevas[i] = arryRutasNuevasTmp[i];//guardo las nuevas rutas en otro Array para intentar sacarlo tambien del Metodo. 
             }
 
             #endregion
@@ -190,7 +188,7 @@ namespace ExtractorFicherosWPF
         /// donde copiaremos todos los proyectos en sus respectivas carpetas
         /// </summary>
         /// <returns>arrayRutasNuevas</returns>
-        public string[] DevuelveRutasNuevas()
+        public static string[] DevuelveRutasNuevas()
         {
             return arryRutasNuevas;
         }
@@ -201,7 +199,7 @@ namespace ExtractorFicherosWPF
         /// y por ultimo lo guarda en la coleccion o array.
         /// </summary>
         /// <returns>ArrayRutasOriginalesExe</returns>
-        public string[] DevuelveRutasOriginalesExe()
+        public static string[] DevuelveRutasOriginalesExe()
         {
             string[] partesDeUnaRutaOriginal;
             string nombreejecutable = string.Empty;
@@ -228,7 +226,6 @@ namespace ExtractorFicherosWPF
                 partesDeUnaRutaOriginal = ArrayComprobacionRutasOriginales[i].Split(Path.DirectorySeparatorChar);
                 nombreDirectorioRaizProyecto = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];//Cogemos el ultimo de el array que sera el directorio con el nombre del proyecto (el mismo que del ejecutable final)
                 ArrayNomDirectorioRaizProyecto[i] = partesDeUnaRutaOriginal[partesDeUnaRutaOriginal.Length - 1];
-
             }
 
             return ArrayNomDirectorioRaizProyecto;
@@ -238,7 +235,7 @@ namespace ExtractorFicherosWPF
         /// Devuelve los nombres de cada ejecutable que coincide con el nombre del proyecto
         /// </summary>
         /// <returns>Arraynombreejecutables</returns>
-        public string[] DevuelveNombreProyectos()
+        public static string[] DevuelveNombreProyectos()
         {
             return Arraynombreejecutables;
         }
