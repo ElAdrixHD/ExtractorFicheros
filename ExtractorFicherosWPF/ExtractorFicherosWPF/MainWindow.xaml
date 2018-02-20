@@ -17,12 +17,12 @@
                     <MenuItem.Icon>
                         <Image Source="Imagenes/GitHub-Mark-32px.png" Margin="0,0,-7,0" Width="15"/>
                     </MenuItem.Icon>
-                    <MenuItem x:Name="MiMenu_Git_Pablo" Header="Rasky0607 (Pablo)" Click="MiMenu_Git_Pablo_Click">
+                    <MenuItem x:Name="MiMenu_Git_Pablo" Header="Rasky0607 (Pablo)" Click=" MiMenu_Git_Click">
                         <MenuItem.Icon>
                             <Image Source="Imagenes/GitHub-Mark-32px.png" Margin="0,0,-7,0" Width="15"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem x:Name="MiMenu_Git_Adrian" Header="ElAdrixHD (Adrián)" Click="MiMenu_Git_Adrian_Click">
+                    <MenuItem x:Name="MiMenu_Git_Adrian" Header="ElAdrixHD (Adrián)" Click=" MiMenu_Git_Click">
                         <MenuItem.Icon>
                             <Image Source="Imagenes/GitHub-Mark-32px.png" Margin="0,0,-7,0" Width="15"/>
                         </MenuItem.Icon>
@@ -37,8 +37,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="19,135,0,0" TextWrapping="Wrap" Text="Ruta del Destino para los archivos:" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontFamily="Linux Biolinum G" FontSize="14"/>
         <TextBox x:Name="Path_Destino" HorizontalAlignment="Left" Height="23" Margin="19,156,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="536" IsEnabled="False" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic"/>
 
-        <Button x:Name="BotonExaminar_Origen" Content="Examinar" HorizontalAlignment="Left" Margin="563,88,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Origen_Click" RenderTransformOrigin="1.132,0.69"/>
-        <Button x:Name="BotonExaminar_Destino" Content="Examinar" HorizontalAlignment="Left" Margin="563,156,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Destino_Click"/>
+        <Button x:Name="BotonExaminar_Origen" Content="Examinar" HorizontalAlignment="Left" Margin="563,88,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Click" RenderTransformOrigin="1.132,0.69"/>
+        <Button x:Name="BotonExaminar_Destino" Content="Examinar" HorizontalAlignment="Left" Margin="563,156,0,0" VerticalAlignment="Top" Width="75" Height="23" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonExaminar_Click"/>
         <Button x:Name="BotonIniciar" Content="Iniciar Programa" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158" Margin="480,263,0,0" FontFamily="Linux Biolinum G" FontSize="16" Click="BotonIniciar_Click" IsEnabled="False"/>
         <TextBlock x:Name="TextBox_TodoBien" HorizontalAlignment="Left" Margin="33,281,0,0" TextWrapping="Wrap" Text="Programa Completado... Todo Correcto" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Foreground="Lime" Opacity="0"/>
         <RadioButton Name="rbSinDll" Content="Extraer solo ficheros .exe y .cs!" HorizontalAlignment="Left" Margin="33,204,0,0" VerticalAlignment="Top" IsChecked="True"/>

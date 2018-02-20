@@ -18,16 +18,12 @@ namespace ExtractorFicherosWPF
         static string[] arrayRutasExe;//Array donde guardaremos la coleccion de rutas originales hasta los ejecutables
         static string[] arryUnaClase;//Donde guardaremos la ruta hacia cada fichero ".cs" de un proyecto.
         static string[] arrayNombreProyectos;
-        static string[] Rutasnuevas;
-        
-        
-
+        static string[] Rutasnuevas;               
         #endregion
 
         /// <Metodo de Lectura de ficheros Cs>
         /// Lee todos los ficheros  dentro de un directorio concreto y los copia cada uan de las nuevas rutas respectivas
         /// <Metodo de Lectura de ficheros Cs>
-
         public static bool LecturaFicheros()
         {
             try
@@ -35,7 +31,7 @@ namespace ExtractorFicherosWPF
                 
                 arryRutasOriginales = Directorio.LecturaSubDirectorios();
                 arrayRutasExe = Directorio.DevuelveRutasOriginalesExe();
-                Rutasnuevas = Directorio.DevuelveRutasNuevas();//Guarda las nuevas rutas definidas por el usuario.
+                Rutasnuevas = Directorio.CreaNuevosDirectorios();//Guarda la ruta definida por el usuario sumada con cada uno de los subdirectorios creados,copiados de la carpeta raiz de origen.
 
                 for (int i = 0; i < arryRutasOriginales.Length; i++)
                 {
@@ -49,12 +45,11 @@ namespace ExtractorFicherosWPF
                     {
 
 
-                        arryUnaClase = new string[fichero.Length];//Creamos un array con la longitud de la cantiadad de ficheros encontrados
-                        Console.WriteLine("[{0}] Nombre fichero -> {1} .", k + 1, fichero[k].Name.ToString());
+                        arryUnaClase = new string[fichero.Length];//Creamos un array con la longitud de la cantiadad de ficheros encontrados                     
                         string tmp = string.Empty;
                         tmp = fichero[k].ToString(); ;
                         tmp = fichero[k].FullName.ToString();
-                        Console.WriteLine("\n\t\t---Fin Ficheros de esa Ruta ----\n");
+                    
 
                         if (fichero.LongLength != 0)//Si encontro algo
                         {
@@ -85,21 +80,21 @@ namespace ExtractorFicherosWPF
         }
 
         /// <Lee la ruta hacia los ficheros ejecutables(.exe)>
-        /// Lee la ruta hacia los ficheros ejecutables y los copia en cada uan de la nuevas rutas correspondientes.
+        /// Lee la ruta hacia los ficheros ejecutables y los copia en cada una de la nuevas rutas correspondientes.
         /// </summary>
         public static void LecturaFicheroExe()
         {
             try
             {
+                arrayNombreProyectos = Directorio.DevuelveNombreProyectos();
                 for (int i = 0; i < arryRutasOriginales.Length; i++)
-                {
-
-                    arrayNombreProyectos = Directorio.DevuelveNombreProyectos();
+                {                  
                     DirectoryInfo directorio2 = new DirectoryInfo(arryRutasOriginales[i] + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "Debug");
                     FileInfo[] fichero2;
                     FileInfo[] fichero3;//Dlls
                     fichero2 = directorio2.GetFiles("*"+arrayNombreProyectos[i] + ".exe");// Busca los "*.exe" 
                     fichero3 = directorio2.GetFiles("*.dll");
+
                     //Ficheros .exe
                     foreach (FileInfo fichero in fichero2)
                     {
@@ -108,7 +103,9 @@ namespace ExtractorFicherosWPF
                         combinacionRutasFinales = Rutasnuevas[i] + Path.DirectorySeparatorChar + arrayNombreProyectos[i] + ".exe";                       
                         File.Copy(mifichero3.ToString(), combinacionRutasFinales);
 
-                    }
+                    }                  
+                    
+
                     if (MainWindow.sacaFicherosDll)
                     {
                         //Ficheros .dll
@@ -128,9 +125,13 @@ namespace ExtractorFicherosWPF
 
                 MainWindow.MensajeError(ex);
             }
-        }
+        }//Pendiente de refactorizacion , relacionado con DevuelveRutasOriginalesExe de la clase Directorio
 
-
+        /// <CompruebaFicheroInfo>
+        /// Comprueba que hay ficheros .cs en la ruta que se encuentra
+        /// </CompruebaFicheroInfo>
+        /// <param name="ruta"></param>
+        /// <returns>true si encontro ficheros.cs , false si no es asi</returns>
         public bool CompruebaFichero(string ruta)
         {
             bool hayficheros;

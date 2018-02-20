@@ -28,48 +28,17 @@ namespace ExtractorFicherosWPF
     {
         static  bool  saliobien = true;
         public static bool sacaFicherosDll = false;//Cuando esta marcada la obcion de obtener solo los .cs y .exe
+        SolidColorBrush colorPorDefecto = new SolidColorBrush(Colors.Gray);
+      
 
         public MainWindow()
         {
             InitializeComponent();
-            
+            BarraProgreso.Foreground =colorPorDefecto;
+
         }
 
-        #region Metodos
-        /// <CerrarAppInfo>
-        /// Cierra la aplicación
-        /// </CerrarAppInfo>
-        private void CerrarApp()
-        {
-            App.Current.Shutdown();
-        }
-
-        /// <VentanaAcercaDe_AbrirInfo>
-        /// Abre la ventana "Acerca de"
-        /// </VentanaAcercaDe_AbrirInfo>
-        private void VentanaAcercaDe_Abrir()
-        {
-            VentanaAcercaDe_Principal ventanaAcercaDe = new VentanaAcercaDe_Principal();
-            ventanaAcercaDe.ShowDialog();
-        }
-
-        /// <AbrirGit_PabloInfo>
-        /// Abre el GitHub de Pablo en el navegador
-        /// </AbrirGit_PabloInfo>
-        private void AbrirGit_Pablo()
-        {
-            Process.Start("https://github.com/rasky0607/");
-        }
-
-        /// <AbrirGit_AdrianInfo>
-        /// Abre el GitHub de Adrian en el navegador
-        /// </AbrirGit_AdrianInfo>
-        private void AbrirGit_Adrian()
-        {
-            Process.Start("https://github.com/ElAdrixHD/");
-            
-        }
-
+        #region Metodos    
         /// <EjecucionInfo>
         ///  LLama a todas las clases implicadas en el programa para una ejecuccion de este.
         /// </EjecucionInfo>
@@ -77,9 +46,9 @@ namespace ExtractorFicherosWPF
         {                 
                 saliobien = Fichero.LecturaFicheros();
 
-                Fichero.LecturaFicheroExe();
+                Fichero.LecturaFicheroExe();//POR AQUI**
 
-                TextBox_TodoBien.Opacity = 100;
+            TextBox_TodoBien.Opacity = 100;
                 Path_Origen.Text = "Path";
                 Path_Destino.Text = "Path";
                 BotonIniciar.IsEnabled = false;
@@ -103,47 +72,83 @@ namespace ExtractorFicherosWPF
 
         public static bool MensajeError(Exception ex)
         {
-
-           return saliobien = false;    
-            
+           return saliobien = false;               
         }
 
         #endregion
 
         #region Metodos de Eventos Click
+
+        /// <CerrarAppInfo>
+        /// Cierra la aplicación
+        /// </CerrarAppInfo>
+        private void CerrarApp()
+        {
+            App.Current.Shutdown();
+        }
         private void MiMenu_Salir_Click(object sender, RoutedEventArgs e)
         {
             CerrarApp();
         }
 
-        private void MiMenu_Acerca_Click(object sender, RoutedEventArgs e)
+        /// <VentanaAcercaDe_AbrirInfo>
+        /// Abre la ventana "Acerca de"
+        /// </VentanaAcercaDe_AbrirInfo>
+        private void VentanaAcercaDe_Abrir()
         {
+            VentanaAcercaDe_Principal ventanaAcercaDe = new VentanaAcercaDe_Principal();
+            ventanaAcercaDe.ShowDialog();
+        }
+        private void MiMenu_Acerca_Click(object sender, RoutedEventArgs e)
+        {       
             VentanaAcercaDe_Abrir();
         }
 
-        private void MiMenu_Git_Pablo_Click(object sender, RoutedEventArgs e)
+        /// < MiMenu_Git_ClickInfo>
+        /// Redirige a los Git de los  desarrolladores
+        /// </ MiMenu_Git_ClickInfo>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MiMenu_Git_Click(object sender, RoutedEventArgs e)
         {
-            AbrirGit_Pablo();
-        }
+            if (e.OriginalSource == MiMenu_Git_Pablo)
+                Process.Start("https://github.com/rasky0607/");
+            if(e.OriginalSource == MiMenu_Git_Adrian)
+                Process.Start("https://github.com/ElAdrixHD/");
+        }//Refactorizado Listo    
 
-        private void MiMenu_Git_Adrian_Click(object sender, RoutedEventArgs e)
+        /// <BotonExaminar_ClickInfo>
+        /// Recoge las rutas y las muestra en el texbox al usuario
+        /// </BotonExaminar_ClickInfo>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BotonExaminar_Click(object sender, RoutedEventArgs e)//Refactorizado Listo 
         {
-            AbrirGit_Adrian();
-        }
-
-        private void BotonExaminar_Origen_Click(object sender, RoutedEventArgs e)
-        {
+            BarraProgreso.Foreground = colorPorDefecto;//restablece el color de inicio a la barra de progreso
             //Limpieza texbox de mensajes de error y completo
             TextBox_TodoBien.Text = " ";
             //-------------------------------------------
-
             Directorio miDirectorio = new Directorio();
-            Path_Origen.Text = Directorio.CargarRutaOrigen();
-
-            if (Path_Origen.Text == "")
+            //Si el boton pulsado es el de la ruta Origen
+            if (e.OriginalSource == BotonExaminar_Origen)
             {
-                Path_Origen.Text = "Path";
+                Path_Origen.Text = Directorio.CargarRutaOrigen();
+                if (Path_Origen.Text == "")
+                {
+                    Path_Origen.Text = "Path";
+                }
             }
+            //Si el boton pulsado es el de la ruta Destino
+            if (e.OriginalSource == BotonExaminar_Destino)
+            {
+
+                Path_Destino.Text = Directorio.CargarRutaDestino();
+                if (Path_Destino.Text == "")
+                {
+                    Path_Destino.Text = "Path";
+                }
+            }
+            //Si las se indico alguna ruta
             if (Path_Destino.Text != "Path" && Path_Origen.Text != "Path")
             {
                 BotonIniciar.IsEnabled = true;
@@ -154,45 +159,39 @@ namespace ExtractorFicherosWPF
             }
         }
 
-        private void BotonExaminar_Destino_Click(object sender, RoutedEventArgs e)
-        {
-            //Limpieza texbox de mensajes de error y completo
-            TextBox_TodoBien.Text = " ";
-            //-------------------------------------------
-
-            Path_Destino.Text = Directorio.CargarRutaDestino();
-            if (Path_Destino.Text == "")
-            {
-                Path_Destino.Text = "Path";
-            }
-            if (Path_Origen.Text != "Path" && Path_Destino.Text != "Path")
-            {
-                BotonIniciar.IsEnabled = true;
-            }
-            else
-            {
-                BotonIniciar.IsEnabled = false;
-            }
-        }
-
+        /// <BotonIniciar_ClickInfo>
+        /// Redirige al metodo Ejecucion del programa para llevar a cabo la cadena de llamadas a las otras clases y metodos.
+        /// </BotonIniciar_ClickInfo>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BotonIniciar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = System.Windows.MessageBox.Show("¿Estas seguro que has introducido bien las rutas de los archivos?", "Peligro", MessageBoxButton.YesNoCancel);
+            MessageBoxResult result = System.Windows.MessageBox.Show("¿Estas seguro de que has introducido bien las rutas de los archivos?", "!Atención¡", MessageBoxButton.YesNo);
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    Ejecucion();
-                    BarraProgreso.Value += 1;
+                    Ejecucion();                    
+                    break;
+                case MessageBoxResult.No:                   
                     break;
                 
             }
         }
-
+        /// <rbConDll_CheckedInfo>
+        /// Opcion para Extraer tambien los ficheros DLL de los proyectos, ademas el los .exe y . cs
+        /// </rbConDll_CheckedInfo>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbConDll_Checked(object sender, RoutedEventArgs e)
         {
             sacaFicherosDll = true;
         }
 
+        /// <Version_MouseEnterInfo>
+        /// Habilita y deshabilita la el texbox donde se colocaran las rutas, para permitir la escritura manual o no
+        /// </Version_MouseEnterInfo>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Version_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (Path_Origen.IsEnabled && Path_Destino.IsEnabled)
