@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExtractorFicherosWPF"
         mc:Ignorable="d"
-        Title="Extractor Ficheros WPF" Height="339.017" Width="699.437"
+        Title="Extractor de Ficheros" Height="339.017" Width="699.437"
         ResizeMode="CanMinimize" Background="#FF94C7FF" Icon="Imagenes/Icono.PNG">
     <Grid>
         <Menu x:Name="MiMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="693" Margin="0,0,-0.2,0">
             <MenuItem x:Name="MiMenu_Archivo" Header="Archivo" Height="20" FontFamily="Linux Biolinum G" FontSize="14">
                 <MenuItem x:Name="MiMenu_Salir" Header="Salir" Click="MiMenu_Salir_Click"/>
+                <MenuItem x:Name="MiMenu_Instrucciones" Header="Instrucciones" Click="MiMenu_Instrucciones_Click"/>
             </MenuItem>
             <MenuItem x:Name="MiMenu_Ayuda" Header="Ayuda" Height="20" FontFamily="Linux Biolinum G" FontSize="14">
                 <MenuItem x:Name="MiMenu_Git" Header="GitHub" FontFamily="Linux Biolinum G" FontSize="14">

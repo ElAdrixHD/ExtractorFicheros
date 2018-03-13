@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExtractorFicherosWPF"
         mc:Ignorable="d"
-        Title="Acerca de" Height="333.293" Width="324.878" Background="#FFCECECE"
+        Title="Acerca de..." Height="333.293" Width="324.878" Background="#FFCECECE"
         ResizeMode="NoResize">
     <Grid>
         <Button x:Name="Boton_AcercaDe_Cerrar" Content="Cerrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="110,263,0,0" Click="Boton_AcercaDe_Cerrar_Click"/>

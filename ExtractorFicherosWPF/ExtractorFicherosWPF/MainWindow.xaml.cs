@@ -205,8 +205,20 @@ namespace ExtractorFicherosWPF
                 Path_Destino.IsEnabled = true;
             }
         }
+
         #endregion
 
+        /// <MiMenu_Instrucciones_Click>
+        /// Abre el editor de imagenes que se tenga configurado por defecto el cual cargara las  imagenes de la carpeta de instrucciones del proyecto
+        /// </MiMenu_Instrucciones_Click>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MiMenu_Instrucciones_Click(object sender, RoutedEventArgs e)
+        {
+            string ruta = @"..\..\Imagenes\imgInstrucciones\instrucciones1.png";
+            Process.Start(ruta);
 
+            
+        }
     }
 }
