@@ -1,0 +1,5 @@
+image: Visual Studio 2017
+
+build:
+  project: \ExtractorFicherosProgramaciónDAM\ExtractorFicherosProgramaciónDAM.sln
+verbosity: minimal
