@@ -1,5 +1,5 @@
 # ExtractorFicheros
-[![GitHub license](https://img.shields.io/github/license/ElAdrixHD/ExtractorFicheros.svg)](https://github.com/ElAdrixHD/ExtractorFicheros/blob/master/LICENSE)
+	[![GitHub license](https://img.shields.io/github/license/ElAdrixHD/ExtractorFicheros.svg)](https://github.com/ElAdrixHD/ExtractorFicheros/blob/master/LICENSE)
   
 ### Función
 
