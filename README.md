@@ -1,5 +1,5 @@
 # ExtractorFicheros
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/nlq03nc95q5d8xac/branch/master?svg=true)](https://ci.appveyor.com/project/ElAdrixHD/extractorficheros/branch/master)  [![GitHub license](https://img.shields.io/github/license/ElAdrixHD/ExtractorFicheros.svg)](https://github.com/ElAdrixHD/ExtractorFicheros/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/ElAdrixHD/ExtractorFicheros.svg)](https://github.com/ElAdrixHD/ExtractorFicheros/blob/master/LICENSE)
   
 ### Función
 
