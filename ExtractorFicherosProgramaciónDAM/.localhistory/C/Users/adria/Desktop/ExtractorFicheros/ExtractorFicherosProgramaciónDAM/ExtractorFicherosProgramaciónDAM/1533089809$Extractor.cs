@@ -2,20 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 
-/*
- *      I M P O R T A N T E___________________________________________________ G R A B A R    A     F U E G O__________________________________________________________________________
- * 
- * 
- *                          TODOS ESTOS MÉTODOS SE LES CAPTURA TODAS LAS EXCEPCIONES Y ESTAS SE ELEVAN PARA QUE LAS RECIBA EL MAIN WINDOWS
- * 
- * 
- *                          EL CUAL SE ENCARGA DE QUE SI SALTÓ ALGUNA EXCEPCION, SALGA EN MENSAJE DE ERROR.
- * 
- * 
- */
-
-
-
 namespace ExtractorFicherosProgramaciónDAM
 {
     public class Extractor
@@ -91,7 +77,7 @@ namespace ExtractorFicherosProgramaciónDAM
             {
                 for (int i = 0; i < ficherosOrdenadosPorEjercicios.Length; i++)
                 {
-                    Directory.CreateDirectory(rutaDestino + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name); //DirectoryInfo saca el nombre de cada una de las carpetas
+                    Directory.CreateDirectory(rutaDestino + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name);
                 }
             }
             catch (Exception)
@@ -104,8 +90,8 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <summary>
         /// Copia los archivos encontrados y guardados en la matriz en la ruta de destino seleccionada
         /// </summary>
-        /// <param name="lista">Array con los ficheros de cada ejercicio</param>
-        /// <param name="ruta">Ruta de destino</param>
+        /// <param name="lista"></param>
+        /// <param name="ruta"></param>
         /// <returns>Verdadero o Falso</returns>
         private static void Copiar(string[][] lista, string ruta)
         {
@@ -127,10 +113,6 @@ namespace ExtractorFicherosProgramaciónDAM
             }
         }
 
-        /// <summary>
-        /// Despues de haber copiado los ficheros en cada carpeta, comprobamos si dichas carpetas estan vacias, en caso afirmativo, se procede a su destrucción.
-        /// </summary>
-        /// <param name="rutaDestino">Reuta de destino</param>
         private static void EliminarCarpetasVacias(string rutaDestino)
         {
             try

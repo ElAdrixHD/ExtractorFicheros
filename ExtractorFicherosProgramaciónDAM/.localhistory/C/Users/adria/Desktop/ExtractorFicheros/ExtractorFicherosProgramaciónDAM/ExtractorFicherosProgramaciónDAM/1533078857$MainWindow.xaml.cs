@@ -33,20 +33,26 @@ namespace ExtractorFicherosProgramaciónDAM
 
         public void Ejecucion()
         {
-            try
+            string[][] ficheros = Extractor.BusquedaPrimera(Path_Origen.Text, Path_Destino.Text);
+            if (ficheros == null)
             {
-                Extractor.BusquedaPrimera(Path_Origen.Text, Path_Destino.Text);
-                TextBox_TodoBien.Text = "Programa Completado... Todo Correcto";
-                TextBox_TodoBien.Foreground = Brushes.Green;
+                TextBox_TodoBien.Text = "Algo ha salido mal, intentelo de nuevo";
+                TextBox_TodoBien.Foreground = Brushes.Red;
                 TextBox_TodoBien.Opacity = 100;
-                System.Windows.MessageBox.Show("Porfavor, no se le olvide comprobar que todos los archivos se hayan copiado correctamente.\n\nMuchas gracias por usar el programa. :3\n\nSi ocurre algún error, se agradeceria que informaseis a los respectivos delvelopers ubicado en la ventana 'Acerca de' en el menú de ayuda.", "Programa Completado Correctamente", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
-            catch (Exception)
+
+            if (Extractor.Copiar(ficheros, Path_Destino.Text))
+            {
+                TextBox_TodoBien.Opacity = 100;
+            }
+            else
             {
                 TextBox_TodoBien.Text = "Algo ha salido mal, intentelo de nuevo";
                 TextBox_TodoBien.Foreground = Brushes.Red;
                 TextBox_TodoBien.Opacity = 100;
             }
+            Extractor.EliminarCarpetasVacias(Path_Destino.Text);
         }
         #region Eventos
         private void MiMenu_Instrucciones_Click(object sender, RoutedEventArgs e)
@@ -57,7 +63,7 @@ namespace ExtractorFicherosProgramaciónDAM
 
         private void BotonIniciar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = System.Windows.MessageBox.Show("¿Estás seguro de que has introducido bien las rutas de los archivos?", "!Atención¡", MessageBoxButton.YesNo);
+            MessageBoxResult result = System.Windows.MessageBox.Show("¿Estas seguro de que has introducido bien las rutas de los archivos?", "!Atención¡", MessageBoxButton.YesNo);
             switch (result)
             {
                 case MessageBoxResult.Yes:

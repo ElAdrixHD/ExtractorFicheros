@@ -2,20 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 
-/*
- *      I M P O R T A N T E___________________________________________________ G R A B A R    A     F U E G O__________________________________________________________________________
- * 
- * 
- *                          TODOS ESTOS MÉTODOS SE LES CAPTURA TODAS LAS EXCEPCIONES Y ESTAS SE ELEVAN PARA QUE LAS RECIBA EL MAIN WINDOWS
- * 
- * 
- *                          EL CUAL SE ENCARGA DE QUE SI SALTÓ ALGUNA EXCEPCION, SALGA EN MENSAJE DE ERROR.
- * 
- * 
- */
-
-
-
 namespace ExtractorFicherosProgramaciónDAM
 {
     public class Extractor
@@ -30,7 +16,7 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <param name="rutaInicio">Parametro de ruta de origen</param>
         /// <param name="rutaDestino">Parametro de ruta destino</param>
         /// <returns>Devuelve un array de strings dentado los cuales contiene los ficheros fuentes, los ejecutables y dlls.</returns>
-        public static void BusquedaPrimera(string rutaInicio, string rutaDestino)
+        public static string[][] BusquedaPrimera(string rutaInicio, string rutaDestino)
         {
             listaTemporal = new List<string>();
             ficherosOrdenadosPorEjercicios = new string[Directory.GetDirectories(rutaInicio).Length][];
@@ -45,13 +31,12 @@ namespace ExtractorFicherosProgramaciónDAM
                     listaTemporal.Clear();
                 }
                 CrearCarpetas(rutaDestino, carpetasDePegado); //No se puede crear las carpetas hasta que "BusquedaRecursiva haya sido completado y el array dentado esté lleno de datos."
-                Copiar(ficherosOrdenadosPorEjercicios, rutaDestino);
-                EliminarCarpetasVacias(rutaDestino);
+                return ficherosOrdenadosPorEjercicios;
             }
             catch (Exception)
             {
                 throw;
-            }
+            } 
         }
 
         /// <summary>
@@ -91,23 +76,23 @@ namespace ExtractorFicherosProgramaciónDAM
             {
                 for (int i = 0; i < ficherosOrdenadosPorEjercicios.Length; i++)
                 {
-                    Directory.CreateDirectory(rutaDestino + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name); //DirectoryInfo saca el nombre de cada una de las carpetas
+                    Directory.CreateDirectory(rutaDestino + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name);
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-
+            
         }
 
         /// <summary>
         /// Copia los archivos encontrados y guardados en la matriz en la ruta de destino seleccionada
         /// </summary>
-        /// <param name="lista">Array con los ficheros de cada ejercicio</param>
-        /// <param name="ruta">Ruta de destino</param>
+        /// <param name="lista"></param>
+        /// <param name="ruta"></param>
         /// <returns>Verdadero o Falso</returns>
-        private static void Copiar(string[][] lista, string ruta)
+        public static bool Copiar(string[][] lista, string ruta)
         {
             try
             {
@@ -117,9 +102,21 @@ namespace ExtractorFicherosProgramaciónDAM
                     numero++;
                     for (int j = 0; j < lista[i].Length; j++)
                     {
-                        File.Copy(lista[i][j], ruta + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name + "\\" + Path.GetFileName(lista[i][j]));
+                        try
+                        {
+                            if (lista[i][j] != null)
+                            {
+                                File.Copy(lista[i][j], ruta + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name + "\\" + Path.GetFileName(lista[i][j]));
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            return false;
+                        }
                     }
                 }
+                EliminarCarpetasVacias(ruta);
+                return true;
             }
             catch (Exception)
             {
@@ -127,10 +124,6 @@ namespace ExtractorFicherosProgramaciónDAM
             }
         }
 
-        /// <summary>
-        /// Despues de haber copiado los ficheros en cada carpeta, comprobamos si dichas carpetas estan vacias, en caso afirmativo, se procede a su destrucción.
-        /// </summary>
-        /// <param name="rutaDestino">Reuta de destino</param>
         private static void EliminarCarpetasVacias(string rutaDestino)
         {
             try
@@ -147,7 +140,7 @@ namespace ExtractorFicherosProgramaciónDAM
             {
                 throw;
             }
-
+            
         }
     }
 }
