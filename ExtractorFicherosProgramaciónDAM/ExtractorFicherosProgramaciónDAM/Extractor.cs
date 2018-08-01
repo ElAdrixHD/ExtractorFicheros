@@ -102,7 +102,7 @@ namespace ExtractorFicherosProgramaciónDAM
         }
 
         /// <summary>
-        /// Copia los archivos encontrados y guardados en la matriz en la ruta de destino seleccionada
+        /// Copia los archivos encontrados y guardados en la matriz en la ruta de destino seleccionada.
         /// </summary>
         /// <param name="lista">Array con los ficheros de cada ejercicio</param>
         /// <param name="ruta">Ruta de destino</param>
