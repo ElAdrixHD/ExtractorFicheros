@@ -51,8 +51,8 @@ namespace ExtractorFicherosProgramaciónDAM
         #region Eventos
         private void MiMenu_Instrucciones_Click(object sender, RoutedEventArgs e)
         {
-            string ruta = @"..\..\Imagenes\imgInstrucciones\instrucciones1.png";
-            Process.Start(ruta);
+            Instrucciones ventanaIntruccion = new Instrucciones();
+            ventanaIntruccion.ShowDialog();
         }
 
         private void BotonIniciar_Click(object sender, RoutedEventArgs e)
