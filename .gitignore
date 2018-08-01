@@ -215,3 +215,6 @@ src/Telegram.Bot.Documentation/
 
 # VS Code
 .vscode/
+
+#Plugin historial
+/.localhistory
