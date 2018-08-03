@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 
 /*
  *      I M P O R T A N T E___________________________________________________ G R A B A R    A     F U E G O__________________________________________________________________________
@@ -30,7 +31,7 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <param name="rutaInicio">Parametro de ruta de origen</param>
         /// <param name="rutaDestino">Parametro de ruta destino</param>
         /// <returns>Devuelve un array de strings dentado los cuales contiene los ficheros fuentes, los ejecutables y dlls.</returns>
-        public static void BusquedaPrimera(string rutaInicio, string rutaDestino)
+        public static void BusquedaPrimera(string rutaInicio, string rutaDestino, bool _compresion, string nombreComprimido = null)
         {
             listaTemporal = new List<string>();
             ficherosOrdenadosPorEjercicios = new string[Directory.GetDirectories(rutaInicio).Length][];
@@ -47,6 +48,10 @@ namespace ExtractorFicherosProgramaciónDAM
                 CrearCarpetas(rutaDestino, carpetasDePegado); //No se puede crear las carpetas hasta que "BusquedaRecursiva haya sido completado y el array dentado esté lleno de datos."
                 Copiar(ficherosOrdenadosPorEjercicios, rutaDestino);
                 EliminarCarpetasVacias(rutaDestino);
+                if (_compresion)
+                {
+                    Compresion(rutaDestino, nombreComprimido);
+                }
             }
             catch (Exception)
             {
@@ -139,7 +144,7 @@ namespace ExtractorFicherosProgramaciónDAM
                 {
                     if (Directory.GetFiles(directorios).Length == 0 && Directory.GetDirectories(directorios).Length == 0)
                     {
-                        Directory.Delete(directorios);
+                        Directory.Delete(directorios, true);
                     }
                 }
             }
@@ -148,6 +153,21 @@ namespace ExtractorFicherosProgramaciónDAM
                 throw;
             }
 
+        }
+
+        private static void Compresion(string ruta, string nombre)
+        {
+            try
+            {
+                string rutaDirectorioPadre = new DirectoryInfo(ruta).Parent.FullName + "\\";
+                ZipFile.CreateFromDirectory(ruta, rutaDirectorioPadre + nombre + ".zip");
+                Directory.Delete(ruta,true);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
     }
 }

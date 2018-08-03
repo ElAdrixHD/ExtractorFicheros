@@ -35,15 +35,15 @@ namespace ExtractorFicherosProgramaciónDAM
         {
             try
             {
-                Extractor.BusquedaPrimera(Path_Origen.Text, Path_Destino.Text);
+                Extractor.BusquedaPrimera(Path_Origen.Text, Path_Destino.Text, (bool)autocompresion.IsChecked,nombre_compresion.Text);
                 TextBox_TodoBien.Text = "Programa Completado... Todo Correcto";
                 TextBox_TodoBien.Foreground = Brushes.Green;
                 TextBox_TodoBien.Opacity = 100;
                 System.Windows.MessageBox.Show("Porfavor, no se le olvide comprobar que todos los archivos se hayan copiado correctamente.\n\nMuchas gracias por usar el programa. :3\n\nSi ocurre algún error, se agradeceria que informaseis a los respectivos delvelopers ubicado en la ventana 'Acerca de' en el menú de ayuda.", "Programa Completado Correctamente", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                TextBox_TodoBien.Text = "Algo ha salido mal, intentelo de nuevo";
+                TextBox_TodoBien.Text = e.Message;
                 TextBox_TodoBien.Foreground = Brushes.Red;
                 TextBox_TodoBien.Opacity = 100;
             }
@@ -114,26 +114,25 @@ namespace ExtractorFicherosProgramaciónDAM
             ventana.ShowDialog();
         }
 
-        private void Version_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            if (Path_Origen.IsEnabled && Path_Destino.IsEnabled)
-            {
-                Path_Destino.IsEnabled = false;
-                Path_Origen.IsEnabled = false;
-            }
-            else
-            {
-                Path_Origen.IsEnabled = true;
-                Path_Destino.IsEnabled = true;
-            }
-        }
-
         private void MiMenu_Git_Click(object sender, RoutedEventArgs e)
         {
             if (e.OriginalSource == MiMenu_Git_Pablo)
                 Process.Start("https://github.com/rasky0607/");
             if (e.OriginalSource == MiMenu_Git_Adrian)
                 Process.Start("https://github.com/ElAdrixHD/");
+        }
+
+        private void autocompresion_Checked(object sender, RoutedEventArgs e)
+        {
+            nombre_compresion.IsEnabled = true;
+            nombre_compresion.Focus();
+            nombre_compresion.Text = string.Empty;
+        }
+
+        private void autocompresion_Unchecked(object sender, RoutedEventArgs e)
+        {
+            nombre_compresion.IsEnabled = false;
+            nombre_compresion.Text = "Introduce el nombre del comprimido";
         }
         #endregion
     }
