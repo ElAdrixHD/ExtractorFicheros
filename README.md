@@ -26,7 +26,7 @@ Buscamos la carpeta donde estén todos nuestros proyectos y le damos a aceptar.
 
 ![](https://adrianmmudarra.es/wp-content/uploads/2018/08/Instruccion4.png)
 
-Una vez hecho la primera ruta, hacemos lo mismo en la ruta destino donde queramos los ficheros. Es muy importante que la ruta sea en una carpeta vacia.
+Una vez hecho la primera ruta, hacemos lo mismo en la ruta destino donde queramos los ficheros. **Es muy importante que la ruta sea en una carpeta vacia.**
 
 ![](https://adrianmmudarra.es/wp-content/uploads/2018/08/Instruccion5.png) ![](https://adrianmmudarra.es/wp-content/uploads/2018/08/Instruccion6.png)
 
