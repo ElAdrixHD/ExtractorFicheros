@@ -5,18 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExtractorFicherosProgramaciónDAM"
         mc:Ignorable="d"
-        Title="Acerca de..." Height="333.293" Width="324.878" Background="#FFCECECE"
+        Title="Acerca de..." Height="337.548" Width="342.606" Background="#FFCECECE"
         ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="Boton_AcercaDe_Cerrar" Content="Cerrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="110,263,0,0" Click="Boton_AcercaDe_Cerrar_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="Desarrollador Principal:" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Linux Biolinum G" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="14" FontStyle="Italic" TextDecorations="Underline"><Run Text="Pablo Lopez Santana"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,197,0,0" TextWrapping="Wrap" Text="Desarrolladores Secundarios:" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.523,1.374"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,216,0,0" TextWrapping="Wrap" Text="Adrián Muñoz Mudarra" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="14" FontStyle="Italic" TextDecorations="Underline"/>
+        <Button x:Name="Boton_AcercaDe_Cerrar" Content="Cerrar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Margin="0,263,0,0" Click="Boton_AcercaDe_Cerrar_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="Desarrolladores:" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Linux Biolinum G" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic" TextDecorations="Underline"><Run Text="Pablo Lopez Santana"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="173,179,0,0" TextWrapping="Wrap" Text="Adrián Muñoz Mudarra" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="16" FontStyle="Italic" TextDecorations="Underline" RenderTransformOrigin="0.593,0.317"/>
         <Image Margin="10,10,203.4,181" RenderTransformOrigin="0.468,0.834" Source="./Imagenes/pablito.jpg"/>
         <Image Margin="191,10,10.4,181" RenderTransformOrigin="0.468,0.834" Source="./Imagenes/Adrian.jpeg"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontStyle="Italic" TextDecorations="Underline" FontWeight="Bold"><Run Text="esviasalpa@gmail.com"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontStyle="Italic" TextDecorations="Underline" FontWeight="Bold"><Run Text="eladrixhd@gmail.com"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="251,281,0,0" TextWrapping="Wrap" Text="Versión: 1.1" VerticalAlignment="Top" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="15" FontStyle="Italic" TextDecorations="Underline" FontWeight="Bold"><Run Text="esviasalpa@gmail.com"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="173,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="15" FontStyle="Italic" TextDecorations="Underline" FontWeight="Bold"><Run Text="eladrixhd@gmail.com"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="259,267,0,0" TextWrapping="Wrap" Text="Versión: 1.2" VerticalAlignment="Top" FontSize="10"/>
     </Grid>
 </Window>
