@@ -16,6 +16,6 @@
         <Image Margin="191,10,10.4,181" RenderTransformOrigin="0.468,0.834" Source="./Imagenes/Adrian.jpeg"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="15" FontStyle="Italic" TextDecorations="Underline" FontWeight="Bold"><Run Text="esviasalpa@gmail.com"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="173,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Linux Biolinum G" FontSize="15" FontStyle="Italic" TextDecorations="Underline" FontWeight="Bold"><Run Text="eladrixhd@gmail.com"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="259,267,0,0" TextWrapping="Wrap" Text="Versión: 1.2" VerticalAlignment="Top" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Left" Margin="259,267,0,0" TextWrapping="Wrap" Text="Versión: 1.2.1" VerticalAlignment="Top" FontSize="10"/>
     </Grid>
 </Window>

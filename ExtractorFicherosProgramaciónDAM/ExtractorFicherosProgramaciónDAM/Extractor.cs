@@ -33,6 +33,7 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <returns>Devuelve un array de strings dentado los cuales contiene los ficheros fuentes, los ejecutables y dlls.</returns>
         public static void BusquedaPrimera(string rutaInicio, string rutaDestino, bool _compresion, string nombreComprimido = null)
         {
+            ComprobarCarpetaDestino(rutaDestino);
             listaTemporal = new List<string>();
             ficherosOrdenadosPorEjercicios = new string[Directory.GetDirectories(rutaInicio).Length][];
             carpetasDePegado = Directory.GetDirectories(rutaInicio);
@@ -167,7 +168,21 @@ namespace ExtractorFicherosProgramaciónDAM
             {
                 throw;
             }
-            
+        }
+
+        private static void ComprobarCarpetaDestino(string rutaDestino)
+        {
+            try
+            {
+                if(new DirectoryInfo(rutaDestino).GetDirectories().Length > 0 || new DirectoryInfo(rutaDestino).GetFiles().Length > 0)
+            {
+                    throw new Exception("La carpeta de destino no está vacia.");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
