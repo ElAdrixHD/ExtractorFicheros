@@ -51,8 +51,7 @@ namespace ExtractorFicherosProgramaciónDAM
         #region Eventos
         private void MiMenu_Instrucciones_Click(object sender, RoutedEventArgs e)
         {
-            Instrucciones ventanaIntruccion = new Instrucciones();
-            ventanaIntruccion.ShowDialog();
+            Process.Start("https://github.com/ElAdrixHD/ExtractorFicheros/blob/master/README.md");
         }
 
         private void BotonIniciar_Click(object sender, RoutedEventArgs e)
