@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ExtractorFicherosProgramaciónDAM"
         mc:Ignorable="d"
         Title="Extractor de Ficheros" Height="351.227" Width="699.437"
-        ResizeMode="CanMinimize" Background="#FF94C7FF" Icon="Imagenes/Icono.PNG">
+        ResizeMode="CanMinimize" Background="#FF94C7FF" Icon="Imagenes/1485476041-artboard-1_78536.png">
     <Grid>
         <Menu x:Name="MiMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="693" Margin="0,0,-0.2,0">
             <MenuItem x:Name="MiMenu_Archivo" Header="Archivo" Height="20" FontFamily="Linux Biolinum G" FontSize="14">

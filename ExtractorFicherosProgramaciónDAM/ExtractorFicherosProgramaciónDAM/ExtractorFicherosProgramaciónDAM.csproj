@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1485476041-artboard-1_78536.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -106,11 +109,19 @@
   <ItemGroup>
     <Resource Include="Imagenes\Adrian.jpeg" />
     <Resource Include="Imagenes\GitHub-Mark-32px.png" />
-    <Resource Include="Imagenes\Icono.PNG" />
     <Resource Include="Imagenes\pablito.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\imgInstrucciones\Instruccion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\1485476041-artboard-1_78536.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\1485476041-artboard-1_78536.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1485476041-artboard-1_78536.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
