@@ -175,7 +175,7 @@ namespace ExtractorFicherosProgramaciónDAM
             try
             {
                 if(new DirectoryInfo(rutaDestino).GetDirectories().Length > 0 || new DirectoryInfo(rutaDestino).GetFiles().Length > 0)
-            {
+                {
                     throw new Exception("La carpeta de destino no está vacia.");
                 }
             }

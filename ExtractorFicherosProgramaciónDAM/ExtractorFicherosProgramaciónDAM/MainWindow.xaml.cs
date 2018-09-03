@@ -39,7 +39,7 @@ namespace ExtractorFicherosProgramaciónDAM
                 TextBox_TodoBien.Text = "Programa Completado... Todo Correcto";
                 TextBox_TodoBien.Foreground = Brushes.Green;
                 TextBox_TodoBien.Opacity = 100;
-                System.Windows.MessageBox.Show("Porfavor, no se le olvide comprobar que todos los archivos se hayan copiado correctamente.\n\nMuchas gracias por usar el programa. :3\n\nSi ocurre algún error, se agradeceria que informaseis a los respectivos delvelopers ubicado en la ventana 'Acerca de' en el menú de ayuda.", "Programa Completado Correctamente", MessageBoxButton.OK, MessageBoxImage.Information);
+                System.Windows.MessageBox.Show("Porfavor, no se le olvide comprobar que todos los archivos se hayan copiado correctamente.\n\nMuchas gracias por usar el programa.\n\nSi ocurre algún error, se agradeceria que informaseis a los respectivos delvelopers ubicado en la ventana 'Acerca de' en el menú de ayuda.", "Programa Completado Correctamente", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
@@ -56,7 +56,7 @@ namespace ExtractorFicherosProgramaciónDAM
 
         private void BotonIniciar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = System.Windows.MessageBox.Show("¿Estás seguro de que has introducido bien las rutas de los archivos?", "!Atención¡", MessageBoxButton.YesNo);
+            MessageBoxResult result = System.Windows.MessageBox.Show("¿Estás seguro de que has introducido bien las rutas de los archivos?\n\nIMPORTANTE... ANTES DE ACEPTAR DEBES SABER QUE ESTE PROGRAMA ESTÁ AÚN EN DESARROLLO Y SE PUEDE PRODUCIR ERRORES.\n LOS DESARROLLADORES NO NOS HACEMOS CARGO DEL MAL USO DE ESTE PROGRAMA, NI DE LAS POSIBLES PERDIDAS QUE SE PUEDAN PRODUCIR USANDO ESTA APLICACIÓN.", "!Atención¡", MessageBoxButton.YesNo, MessageBoxImage.Warning,MessageBoxResult.No);
             switch (result)
             {
                 case MessageBoxResult.Yes:
