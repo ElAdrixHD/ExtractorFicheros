@@ -10,7 +10,7 @@ using System.IO.Compression;
  *                          TODOS ESTOS MÉTODOS SE LES CAPTURA TODAS LAS EXCEPCIONES Y ESTAS SE ELEVAN PARA QUE LAS RECIBA EL MAIN WINDOWS
  * 
  * 
- *                          EL CUAL SE ENCARGA DE QUE SI SALTÓ ALGUNA EXCEPCION, SALGA EN MENSAJE DE ERROR.
+ *                          EL CUAL SE ENCARGA DE QUE SI SALTÓ ALGUNA EXCEPCIÓN, SALGA EN MENSAJE DE ERROR.
  * 
  * 
  */
@@ -38,25 +38,19 @@ namespace ExtractorFicherosProgramaciónDAM
             ficherosOrdenadosPorEjercicios = new string[Directory.GetDirectories(rutaInicio).Length][];
             carpetasDePegado = Directory.GetDirectories(rutaInicio);
             int contador = 0;
-            try
+
+            foreach (string directorios in Directory.GetDirectories(rutaInicio)) // Busca cada directorio en la ruta de inicio proporcionada.
             {
-                foreach (string directorios in Directory.GetDirectories(rutaInicio))
-                {
-                    BusquedaRecursiva(directorios);
-                    ficherosOrdenadosPorEjercicios[contador++] = listaTemporal.ToArray();   //Determina de cada fila, cuantos archivos tiene cada carpeta
-                    listaTemporal.Clear();
-                }
-                CrearCarpetas(rutaDestino, carpetasDePegado); //No se puede crear las carpetas hasta que "BusquedaRecursiva haya sido completado y el array dentado esté lleno de datos."
-                Copiar(ficherosOrdenadosPorEjercicios, rutaDestino);
-                EliminarCarpetasVacias(rutaDestino);
-                if (_compresion)
-                {
-                    Compresion(rutaDestino, nombreComprimido);
-                }
+                BusquedaRecursiva(directorios);
+                ficherosOrdenadosPorEjercicios[contador++] = listaTemporal.ToArray();   //Determina de cada fila, cuantos archivos tiene cada carpeta
+                listaTemporal.Clear();
             }
-            catch (Exception)
+            CrearCarpetas(rutaDestino, carpetasDePegado); //No se puede crear las carpetas hasta que "BusquedaRecursiva haya sido completado y el array dentado esté lleno de datos."
+            Copiar(ficherosOrdenadosPorEjercicios, rutaDestino);
+            EliminarCarpetasVacias(rutaDestino);
+            if (_compresion)
             {
-                throw;
+                Compresion(rutaDestino, nombreComprimido);
             }
         }
 
@@ -65,24 +59,17 @@ namespace ExtractorFicherosProgramaciónDAM
         /// </summary>
         /// <param name="ruta">Carpeta de uno de los ejercicios.</param>
         private static void BusquedaRecursiva(string ruta)
-        {
-            try
+        {         
+            foreach (string directorios in Directory.GetDirectories(ruta)) // Hace una busqueda por cada directorio que haya en la ruta.
             {
-                foreach (string directorios in Directory.GetDirectories(ruta))
+                foreach (string ficheros in Directory.GetFiles(directorios)) // En cada directorio, lee cada fichero del directorio.
                 {
-                    foreach (string ficheros in Directory.GetFiles(directorios))
+                    if ((Path.GetExtension(ficheros) == ".cs" || (Path.GetExtension(ficheros) == ".exe" && !Path.GetFileName(ficheros).Contains(".vshost.exe")) || Path.GetExtension(ficheros) == ".dll") && (!Path.GetFullPath(ficheros).Contains("obj") && !Path.GetFullPath(ficheros).Contains("Properties")))
                     {
-                        if ((Path.GetExtension(ficheros) == ".cs" || (Path.GetExtension(ficheros) == ".exe" && !Path.GetFileName(ficheros).Contains(".vshost.exe")) || Path.GetExtension(ficheros) == ".dll") && (!Path.GetFullPath(ficheros).Contains("obj") && !Path.GetFullPath(ficheros).Contains("Properties")))
-                        {
-                            listaTemporal.Add(ficheros); //Se añade a la lista temporal para luego ser procesado.
-                        }
+                        listaTemporal.Add(ficheros); //Se añade a la lista temporal para luego ser procesado.
                     }
-                    BusquedaRecursiva(directorios);
                 }
-            }
-            catch (Exception)
-            {
-                throw;
+                BusquedaRecursiva(directorios); // Vuelve a ejecutarse este método en cada directorio que encuentre.
             }
         }
 
@@ -93,18 +80,10 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <param name="carpetas">Array de las carpetas</param>
         private static void CrearCarpetas(string rutaDestino, string[] carpetas)
         {
-            try
+            for (int i = 0; i < ficherosOrdenadosPorEjercicios.Length; i++)
             {
-                for (int i = 0; i < ficherosOrdenadosPorEjercicios.Length; i++)
-                {
-                    Directory.CreateDirectory(rutaDestino + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name); //DirectoryInfo saca el nombre de cada una de las carpetas
-                }
+                Directory.CreateDirectory(rutaDestino + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name); //DirectoryInfo saca el nombre de cada una de las carpetas
             }
-            catch (Exception)
-            {
-                throw;
-            }
-
         }
 
         /// <summary>
@@ -115,21 +94,14 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <returns>Verdadero o Falso</returns>
         private static void Copiar(string[][] lista, string ruta)
         {
-            try
+            int numero = 0;
+            for (int i = 0; i < lista.Length; i++)
             {
-                int numero = 0;
-                for (int i = 0; i < lista.Length; i++)
+                numero++;
+                for (int j = 0; j < lista[i].Length; j++)
                 {
-                    numero++;
-                    for (int j = 0; j < lista[i].Length; j++)
-                    {
-                        File.Copy(lista[i][j], ruta + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name + "\\" + Path.GetFileName(lista[i][j]));
-                    }
+                    File.Copy(lista[i][j], ruta + "\\" + new DirectoryInfo(carpetasDePegado[i]).Name + "\\" + Path.GetFileName(lista[i][j]));
                 }
-            }
-            catch (Exception)
-            {
-                throw;
             }
         }
 
@@ -139,50 +111,35 @@ namespace ExtractorFicherosProgramaciónDAM
         /// <param name="rutaDestino">Reuta de destino</param>
         private static void EliminarCarpetasVacias(string rutaDestino)
         {
-            try
+            foreach (string directorios in Directory.GetDirectories(rutaDestino))
             {
-                foreach (string directorios in Directory.GetDirectories(rutaDestino))
+                if (Directory.GetFiles(directorios).Length == 0 && Directory.GetDirectories(directorios).Length == 0)
                 {
-                    if (Directory.GetFiles(directorios).Length == 0 && Directory.GetDirectories(directorios).Length == 0)
-                    {
-                        Directory.Delete(directorios, true);
-                    }
+                    Directory.Delete(directorios, true);
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
-
         }
 
+        /// <summary>
+        /// Comprime el directorio tras la extracción de los ficheros en un archivo .zip con un nombre asignado, y borra el directorio.
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <param name="nombre"></param>
         private static void Compresion(string ruta, string nombre)
         {
-            try
-            {
-                string rutaDirectorioPadre = new DirectoryInfo(ruta).Parent.FullName + "\\";
-                ZipFile.CreateFromDirectory(ruta, rutaDirectorioPadre + nombre + ".zip");
-                Directory.Delete(ruta,true);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            string rutaDirectorioPadre = new DirectoryInfo(ruta).Parent.FullName + "\\";
+            ZipFile.CreateFromDirectory(ruta, rutaDirectorioPadre + nombre + ".zip");
+            Directory.Delete(ruta,true);
         }
 
+        /// <summary>
+        /// Comprueba que la ruta del destino esté vacía. De lo contrario, salta excepción.
+        /// </summary>
+        /// <param name="rutaDestino"></param>
         private static void ComprobarCarpetaDestino(string rutaDestino)
         {
-            try
-            {
-                if(new DirectoryInfo(rutaDestino).GetDirectories().Length > 0 || new DirectoryInfo(rutaDestino).GetFiles().Length > 0)
-                {
-                    throw new Exception("La carpeta de destino no está vacia.");
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            if(new DirectoryInfo(rutaDestino).GetDirectories().Length > 0 || new DirectoryInfo(rutaDestino).GetFiles().Length > 0)
+                throw new Exception("La carpeta de destino no está vacia.");
         }
     }
 }
