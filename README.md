@@ -10,7 +10,7 @@ El extractor de ficheros es un programa desarrollado en .NET por Adrián Muñoz 
 
 ![](https://adrianmmudarra.es/wp-content/uploads/2018/09/Instruccion0.png)
 
-Para la descarga del programa, debeis ir al apartado de Release ubicado en el pequeño menú ubicado justo encima, el cual está marcado en la imagen.
+Para la descarga del programa, debeis ir al apartado de Release ubicado en el pequeño menú que esta situado justo encima, el cual está marcado en la imagen.
 
 ![](https://adrianmmudarra.es/wp-content/uploads/2018/09/Instruccion00.png)
 
