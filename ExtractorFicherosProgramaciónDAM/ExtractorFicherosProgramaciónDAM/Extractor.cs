@@ -42,7 +42,7 @@ namespace ExtractorFicherosProgramaciónDAM
             {
                 foreach (string directorios in Directory.GetDirectories(rutaInicio))
                 {
-                    BusquedaRecursiva(directorios);
+                    Busqueda(directorios);
                     ficherosOrdenadosPorEjercicios[contador++] = listaTemporal.ToArray();   //Determina de cada fila, cuantos archivos tiene cada carpeta
                     listaTemporal.Clear();
                 }
@@ -61,6 +61,19 @@ namespace ExtractorFicherosProgramaciónDAM
         }
 
         /// <summary>
+        /// Primero comprueba si existe los ficheros fuentes o exes y luego hace las busquedas recursivas.
+        /// </summary>
+        /// <param name="ruta"></param>
+        private static void Busqueda(string ruta)
+        {
+            foreach (string fichero in Directory.GetFiles(ruta))
+            {
+                BuscarArchivos(fichero);
+            }
+            BusquedaRecursiva(ruta);
+        }
+
+        /// <summary>
         /// Dado la carpeta de cada ejercicio, de forma recursiva, busca si hay ficheros fuentes, ejecutables o dll.
         /// </summary>
         /// <param name="ruta">Carpeta de uno de los ejercicios.</param>
@@ -72,10 +85,7 @@ namespace ExtractorFicherosProgramaciónDAM
                 {
                     foreach (string ficheros in Directory.GetFiles(directorios))
                     {
-                        if ((Path.GetExtension(ficheros) == ".cs" || (Path.GetExtension(ficheros) == ".exe" && !Path.GetFileName(ficheros).Contains(".vshost.exe")) || Path.GetExtension(ficheros) == ".dll") && (!Path.GetFullPath(ficheros).Contains("obj") && !Path.GetFullPath(ficheros).Contains("Properties")))
-                        {
-                            listaTemporal.Add(ficheros); //Se añade a la lista temporal para luego ser procesado.
-                        }
+                        BuscarArchivos(ficheros);
                     }
                     BusquedaRecursiva(directorios);
                 }
@@ -83,6 +93,14 @@ namespace ExtractorFicherosProgramaciónDAM
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        private static void BuscarArchivos(string ficheros)
+        {
+            if ((Path.GetExtension(ficheros) == ".cs" || (Path.GetExtension(ficheros) == ".exe" && !Path.GetFileName(ficheros).Contains(".vshost.exe")) || Path.GetExtension(ficheros) == ".dll") && (!Path.GetFullPath(ficheros).Contains("obj") && !Path.GetFullPath(ficheros).Contains("Properties")))
+            {
+                listaTemporal.Add(ficheros); //Se añade a la lista temporal para luego ser procesado.
             }
         }
 
